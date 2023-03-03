@@ -1,6 +1,6 @@
 import React from "react"
 import Options from "./Options";
-import logo from '../../../public/icon.png'
+import logo from '../../assets/icon.png'
 
 export interface INavbarProps {
   title: string;
