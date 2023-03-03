@@ -2,11 +2,15 @@
 
 > For developers by developers ❤️
 
-### Features
-- [ ] CSS outline for debugging
+### Features in development (easy to hard)
+- [ ] CSS outline for debugging (on development)
+- [ ] Image Downloader
+- [ ] Url environment
+- [ ] Lorem Ipsum Generator
 - [ ] Show Element Sizes
-- [ ] RSS checker
-- [ ] Dark theme
-- [ ] Image URL retrival
+- [ ] Multiple search engine searches
 - [ ] Search for emails, phone numbers and URLs inside websites
-
+- [ ] Mantras and Phrases
+- [ ] Windows resizer
+- [ ] Website blocker
+- [ ] RSS checker
