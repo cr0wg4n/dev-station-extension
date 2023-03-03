@@ -7,6 +7,9 @@
     "default_popup": "index.html",
     "default_title": "Open"
   },
+  "permissions": [
+    "webRequest"
+  ],
   "icons":{
     "128": "icon.png"
   }
