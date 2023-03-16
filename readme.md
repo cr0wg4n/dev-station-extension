@@ -10,7 +10,7 @@
 - [ ] Show Element Sizes
 - [ ] Multiple search engine searches
 - [ ] Search for emails, phone numbers and URLs inside websites
-- [ ] Mantras and Phrases
+- [ ] Quotes and Mantras
 - [ ] Windows resizer
 - [ ] Website blocker
 - [ ] RSS checker
