@@ -1,6 +1,12 @@
 # Dev Station - Browser Extension
 
 > For developers by developers ❤️
+### Develpment Usage
+```sh
+npm install 
+npm run dev
+```
+
 
 ### Features in development (easy to hard)
 - [ ] CSS outline for debugging (on development)
