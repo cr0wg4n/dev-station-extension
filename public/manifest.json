@@ -8,8 +8,12 @@
     "default_title": "Open"
   },
   "permissions": [
-    "webRequest"
+    "webRequest",
+    "tabs"
   ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "icons":{
     "128": "icon.png"
   }
