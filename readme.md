@@ -17,6 +17,7 @@ npm run dev
 - [ ] Multiple search engine searches
 - [ ] Search for emails, phone numbers and URLs inside websites
 - [x] Quotes and Mantras
+- [ ] Code Highlighting
 - [ ] Windows resizer
 - [ ] Website blocker
 - [ ] RSS checker

@@ -1,27 +1,26 @@
 import { ReactElement, useEffect, useState } from "react"
 import { FaChevronDown, FaChevronUp, FaFirefox } from "react-icons/fa"
+import { Tool } from "../../store/toolbar/types"
 
 
-interface ToolbarPickerItemProps {
-  title: string;
-  show: boolean;
-  description?: string;
-  children?: ReactElement;
-  onClick?: (title: string) => void;
+interface ToolbarPickerItemProps extends Tool {
+  children?: ReactElement
+  onClick?: (title: string) => void
 }
 
 const ToolbarPickerItem: React.FC<ToolbarPickerItemProps> = ({
   title,
-  show=false,
+  icon='',
+  active=false,
   description,
   children,
   onClick,
 }: ToolbarPickerItemProps) => {
-  const [_show, setShow] = useState(show)
+  const [_show, setShow] = useState(active)
 
   useEffect(()=>{
-    setShow(show)
-  },[show])
+    setShow(active)
+  },[active])
 
   return <div
     onClick={()=>{
@@ -31,7 +30,7 @@ const ToolbarPickerItem: React.FC<ToolbarPickerItemProps> = ({
     <div className="flex items-center bg-slate-300 hover:bg-slate-200 hover:cursor-pointer p-2 border-b-2">
       <div className="mr-4 rounded-full bg-slate-50 p-1 flex items-center justify-center">
         {
-          !show ?
+          !_show ?
             <FaChevronDown size={12} />:
             <FaChevronUp size={12} />
         } 
@@ -43,7 +42,7 @@ const ToolbarPickerItem: React.FC<ToolbarPickerItemProps> = ({
     </div>
 
     {
-      show && 
+      _show && 
       <div className="p-1 text-sm h-72">
         asdasdasdasdasd
         {children}

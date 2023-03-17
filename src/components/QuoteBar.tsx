@@ -4,7 +4,7 @@ const QuoteBar: React.FC = () => {
   const quote = useQuotes()
   return <div className="p-1 outline-1 outline-black">
     <div className="text-xs">
-      {quote.content}
+      <strong>Dev Quote:</strong> {quote.content}
     </div>
     <div className="text-right text-xs">
       {quote.author}

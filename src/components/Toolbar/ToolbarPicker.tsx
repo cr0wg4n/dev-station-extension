@@ -1,26 +1,26 @@
-import { useState } from "react"
+import useToolbarStore from "../../store/toolbar"
 import ToolbarPickerItem from "./ToolbarPickerItem"
 
 
-const tools = [
-  'Demo',
-  'Demo demo demo de',
-  'Demo demo de',
-  'Demo demo ',
-]
-
 const ToolBarPicker: React.FC = () => {
-  const [selectedTool, setSelectedTool] = useState('')
+  const tools = useToolbarStore((state)=>state.tools)
+  const activeToolName = useToolbarStore((state)=>state.activeToolName)
+  const activeTool = useToolbarStore((state)=>state.activeTool)
+
+  const handleClick = (title: string) => {
+    activeTool(title)
+    title === activeToolName && activeTool('')
+  }
+
   return <div>
     {
-      tools.map((i) => <ToolbarPickerItem
-        key={i}
-        title={i}
-        show={i===selectedTool}
-        onClick={(title: string)=>{
-          setSelectedTool(i)
-          title === selectedTool && setSelectedTool('')
-        }}
+      tools.map(({title, active, icon, description}) => <ToolbarPickerItem
+        key={title}
+        icon={icon}
+        title={title}
+        active={active}
+        description={description}
+        onClick={handleClick}
       />)
     }
   </div>
