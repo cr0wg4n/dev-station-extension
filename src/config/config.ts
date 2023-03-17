@@ -1,5 +1,5 @@
-const API_KEYS = {
+const APIS = {
   randomQuotes: 'https://api.quotable.io/random'
 }
 
-export default API_KEYS
+export default APIS

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { requester } from "./requester"
-import API_KEYS from "../config/config"
+import APIS from "../config/config"
 
 export interface Quote {
   content: string
@@ -9,7 +9,7 @@ export interface Quote {
 }
 
 export async function getQuotes(): Promise<Quote> {
-  return await requester<Quote>(API_KEYS.randomQuotes)
+  return await requester<Quote>(APIS.randomQuotes)
 }
 
 export function useQuotes(): Quote {
