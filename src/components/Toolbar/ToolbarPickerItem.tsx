@@ -22,12 +22,13 @@ const ToolbarPickerItem: React.FC<ToolbarPickerItemProps> = ({
     setShow(active)
   },[active])
 
-  return <div
-    onClick={()=>{
-      if(onClick) onClick(title)
-    }}
-  >
-    <div className="flex items-center bg-slate-300 hover:bg-slate-200 hover:cursor-pointer p-2 border-b-2">
+  return <div>
+    <div 
+      className="flex items-center bg-slate-300 hover:bg-slate-200 hover:cursor-pointer p-2 border-b-2"
+      onClick={()=>{
+        if(onClick) onClick(title)
+      }}
+    >
       <div className="mr-4 rounded-full bg-slate-50 p-1 flex items-center justify-center">
         {
           !_show ?
@@ -43,7 +44,7 @@ const ToolbarPickerItem: React.FC<ToolbarPickerItemProps> = ({
 
     {
       _show && 
-      <div className="p-1 text-sm h-72">
+      <div className="p-1 text-sm h-72 select-none">
         asdasdasdasdasd
         {children}
       </div>
