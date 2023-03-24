@@ -10,11 +10,8 @@ function App() {
   return (
     <div className="w-full outline-2 outline">
       <Navbar title="Dev Station" />
-      <ToolBarPicker></ToolBarPicker>
+      <ToolBarPicker />
       <QuoteBar />
-      <button onClick={()=>{
-        getCurrentTab()
-      }}>my button</button>
       <Footer/>
     </div>
   )
