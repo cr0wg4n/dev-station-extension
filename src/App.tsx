@@ -2,9 +2,6 @@ import Footer from "./components/Footer/Footer"
 import Navbar from "./components/Navbar/Navbar"
 import QuoteBar from "./components/QuoteBar"
 import ToolBarPicker from "./components/Toolbar/ToolbarPicker"
-import { getCurrentTab } from "./core/utils"
-
-
 
 function App() {
   return (
