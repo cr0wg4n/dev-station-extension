@@ -6,6 +6,7 @@ specifiers:
   '@types/react-dom': ^18.0.10
   '@vitejs/plugin-react': ^3.1.0
   autoprefixer: ^10.4.13
+  dev-station-core: ^0.0.1
   postcss: ^8.4.21
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -16,6 +17,7 @@ specifiers:
   zustand: ^4.3.6
 
 dependencies:
+  dev-station-core: 0.0.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-icons: 4.8.0_react@18.2.0
@@ -526,19 +528,23 @@ packages:
       '@types/har-format': 1.2.10
     dev: true
 
+  /@types/chrome/0.0.225:
+    resolution: {integrity: sha512-acSFQN7X0/fjF6PSP0Ki9TlwWsEeJeh5WclMYilJSHHp+ayLDMD/YeSIUzsodwLKPZQ9h8SyiL13/pPab8M4RA==}
+    dependencies:
+      '@types/filesystem': 0.0.32
+      '@types/har-format': 1.2.10
+    dev: false
+
   /@types/filesystem/0.0.32:
     resolution: {integrity: sha512-Yuf4jR5YYMR2DVgwuCiP11s0xuVRyPKmz8vo6HBY3CGdeMj8af93CFZX+T82+VD1+UqHOxTq31lO7MI7lepBtQ==}
     dependencies:
       '@types/filewriter': 0.0.29
-    dev: true
 
   /@types/filewriter/0.0.29:
     resolution: {integrity: sha512-BsPXH/irW0ht0Ji6iw/jJaK8Lj3FJemon2gvEqHKpCdDCeemHa+rI3WBGq5z7cDMZgoLjY40oninGxqk+8NzNQ==}
-    dev: true
 
   /@types/har-format/1.2.10:
     resolution: {integrity: sha512-o0J30wqycjF5miWDKYKKzzOU1ZTLuA42HZ4HE7/zqTOc/jTLdQ5NhYWvsRQo45Nfi1KHoRdNhteSI4BAxTF1Pg==}
-    dev: true
 
   /@types/prop-types/15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
@@ -741,6 +747,13 @@ packages:
       defined: 1.0.1
       minimist: 1.2.8
     dev: true
+
+  /dev-station-core/0.0.1:
+    resolution: {integrity: sha512-45R5UKEafEfwv4Jksq0WvJ8JlqqfyFo7cmH4whcqWas8uGEkrVxbv1eA41Lf54/TvRMdFY6wAMo1TX1ot9rCNA==}
+    engines: {node: '>= 16.0.0'}
+    dependencies:
+      '@types/chrome': 0.0.225
+    dev: false
 
   /didyoumean/1.2.2:
     resolution: {integrity: sha512-gxtyfqMg7GKyhQmb056K7M3xszy/myH8w+B4RT+QXBQsvAOdc3XymqDDPHx1BgPgsdAA5SIifona89YtRATDzw==}
