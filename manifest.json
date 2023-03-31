@@ -12,7 +12,7 @@
     "tabs"
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "src/background.ts"
   },
   "icons":{
     "128": "icon.png"
