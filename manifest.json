@@ -9,12 +9,18 @@
   },
   "permissions": [
     "webRequest",
-    "tabs"
+    "tabs",
+    "scripting",
+    "storage"
   ],
   "background": {
     "service_worker": "src/background.ts"
   },
   "icons":{
     "128": "icon.png"
-  }
+  },
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ]
 }
