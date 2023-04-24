@@ -1,7 +1,7 @@
 
 export interface Tool {
+  id: string
   title: string
-  icon: string
   active: boolean
   description?: string
 }  

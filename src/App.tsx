@@ -1,6 +1,6 @@
 import Footer from "./components/Footer/Footer"
 import Navbar from "./components/Navbar/Navbar"
-import QuoteBar from "./components/QuoteBar"
+import QuoteBar from "./components/Tools/QuoteBar"
 import ToolBarPicker from "./components/Toolbar/ToolbarPicker"
 
 function App() {

@@ -1,3 +1,5 @@
+import { ReactElement } from "react";
+
 export enum Tools {
   CSS_OUTLINE = 'CSS Outline',
   RSS_CHECKER = 'RSS Checker',
@@ -11,4 +13,10 @@ export enum Tools {
   LOREM_GENERATOR = 'Lorem Generator',
   CODE_SHOT = 'Code Shot',
   WINDOWS_RESIZER = 'Windows Resizer',
+}
+
+export interface ToolComponent {
+  name: string,
+  rootComponent: ReactElement,
+  icon: ReactElement
 }

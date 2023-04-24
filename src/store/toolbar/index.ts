@@ -1,5 +1,6 @@
 import { Tool } from './types';
 import { create } from "zustand";
+import { tools } from './tools'
 
 export interface ToolbarState {
   activeToolName: string
@@ -10,32 +11,7 @@ export interface ToolbarState {
 
 const useToolbarStore = create<ToolbarState>((set) => ({
   activeToolName: '',
-  tools: [
-    {
-      title: 'Damian damian',
-      active: false,
-      icon: '',
-      description: ''
-    },
-    {
-      title: 'La verdad es que tengo que sonar',
-      active: false,
-      icon: '',
-      description: ''
-    },
-    {
-      title: 'Sonido refrescantte',
-      active: false,
-      icon: '',
-      description: ''
-    },
-    {
-      title: 'Con el cambio de la moneda',
-      active: false,
-      icon: '',
-      description: ''
-    },
-  ],
+  tools,
   deactiveAll: () => {
     set((state)=>{
       const tools = [...state.tools]
@@ -57,6 +33,5 @@ const useToolbarStore = create<ToolbarState>((set) => ({
     })
   },
 }))
-
 
 export default useToolbarStore

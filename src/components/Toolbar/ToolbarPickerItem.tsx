@@ -5,15 +5,16 @@ import { Tool } from "../../store/toolbar/types"
 
 interface ToolbarPickerItemProps extends Tool {
   children?: ReactElement
+  icon?: ReactElement
   onClick?: (title: string) => void
 }
 
 const ToolbarPickerItem: React.FC<ToolbarPickerItemProps> = ({
   title,
-  icon='',
   active=false,
   description,
   children,
+  icon,
   onClick,
 }: ToolbarPickerItemProps) => {
   const [_show, setShow] = useState(active)
@@ -28,6 +29,7 @@ const ToolbarPickerItem: React.FC<ToolbarPickerItemProps> = ({
       onClick={()=>{
         if(onClick) onClick(title)
       }}
+      title={description}
     >
       <div className="mr-4 rounded-full bg-slate-50 p-1 flex items-center justify-center">
         {
@@ -36,7 +38,7 @@ const ToolbarPickerItem: React.FC<ToolbarPickerItemProps> = ({
             <FaChevronUp size={12} />
         } 
       </div>
-      <FaFirefox size={16} className="mr-2"/>
+      { icon }
       <div className="text-sm select-none">
         { title }
       </div>
@@ -44,8 +46,8 @@ const ToolbarPickerItem: React.FC<ToolbarPickerItemProps> = ({
 
     {
       _show && 
-      <div className="text-sm select-none max-h-32 overflow-auto">
-        {children}
+      <div className="text-sm select-none max-h-32 overflow-auto p-1">
+        { children }
       </div>
     }
   </div>
