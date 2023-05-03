@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { enableCssDebugger, disableCssDebugger } from "../../../core/utils"
 import useCssDebuggerStore from "../../../store/cssDebugger"
+import Switch from "../../Generic/Switch"
 
 const CssOutlineDebugger: React.FC = () => {
   const enabled = useCssDebuggerStore((state)=>state.enabled)
@@ -8,11 +9,12 @@ const CssOutlineDebugger: React.FC = () => {
 
   useEffect(()=>{
     enabled ? enableCssDebugger() : disableCssDebugger()
-  },[enabled])
-  return <div onClick={
-    ()=>{setEnabled(!enabled)}
-  }>
-    { enabled ? 'on':'off'}
+  }, [enabled])
+
+  return <div className="text-center">
+    <Switch onClick={() => {
+      setEnabled(!enabled)
+    }} state={enabled} />
   </div>
 }
 
