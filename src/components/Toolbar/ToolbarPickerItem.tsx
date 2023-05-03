@@ -25,7 +25,7 @@ const ToolbarPickerItem: React.FC<ToolbarPickerItemProps> = ({
 
   return <div>
     <div 
-      className="flex items-center bg-slate-300 hover:bg-slate-200 hover:cursor-pointer p-2 border-b-2"
+      className="flex items-center bg-warning hover:bg-warning hover:cursor-pointer p-2 border-b-2"
       onClick={()=>{
         if(onClick) onClick(title)
       }}
@@ -39,7 +39,7 @@ const ToolbarPickerItem: React.FC<ToolbarPickerItemProps> = ({
         } 
       </div>
       { icon }
-      <div className="text-sm select-none">
+      <div className="text-sm select-none text-white font-medium">
         { title }
       </div>
     </div>

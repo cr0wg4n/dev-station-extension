@@ -1,7 +1,7 @@
 import React from "react"
 
 const Footer: React.FC = () => {
-  return <div className="p-3 text-right text-xs bg-black text-white">
+  return <div className="p-3 text-right text-xs bg-neutral text-white">
     Made with ❤️ by <a 
       href="https://github.com/cr0wg4n" 
       target="_blank" 

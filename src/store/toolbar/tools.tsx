@@ -7,7 +7,7 @@ const toolComponents: ToolComponent[] = [
   {
     name: Tools.CSS_OUTLINE,
     rootComponent: <CssOutlineDebugger />,
-    icon: <FaCss3Alt size={16} className="mr-1"/>
+    icon: <FaCss3Alt size={16} className="mr-1 text-white"/>
   },
 ]
 
@@ -20,7 +20,7 @@ export const tools: Tool[] = [
   {
     id: Tools.CSS_OUTLINE,
     title: 'CSS Debugger',
-    active: false,
+    active: true,
     description: 'This is a css debugger tool'
   }
 ]

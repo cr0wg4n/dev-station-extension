@@ -7,16 +7,16 @@ export interface INavbarProps {
 }
 
 const Navbar: React.FC<INavbarProps> = ({ title }:INavbarProps) => {
-  return <div className="w-full p-2 text-white bg-black">
+  return <div className="w-full p-2 text-white bg-neutral">
     <div className="flex justify-between items-center">
       <div className="flex justify-center items-center">
         <img src={logo} alt="logo" className="max-h-7 mr-2"/>
-        <div className="text-base">
+        <div className="text-base font-medium">
           {title}
         </div>
       </div>
       <div>
-        <Options />
+        {/* <Options /> */}
       </div>
     </div>
   </div>

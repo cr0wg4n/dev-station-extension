@@ -34,3 +34,6 @@ export async function disableCssDebugger() {
   `)
 }
 
+export function keyStorageName(toolName: string, key: string) {
+  return `${toolName}:${key}`
+}
