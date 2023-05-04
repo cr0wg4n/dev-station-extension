@@ -1,7 +1,7 @@
 import CssOutlineDebugger from "../../components/Tools/CssOutlineDebugger"
 import { ToolComponent, Tools } from "../../core/tools"
 import { Tool } from "./types"
-import { FaCss3Alt } from 'react-icons/fa'
+import { FaCss3Alt, FaRssSquare } from 'react-icons/fa'
 
 const toolComponents: ToolComponent[] = [
   {
@@ -9,6 +9,11 @@ const toolComponents: ToolComponent[] = [
     rootComponent: <CssOutlineDebugger />,
     icon: <FaCss3Alt size={16} className="mr-1 text-white"/>
   },
+  {
+    name: Tools.RSS_CHECKER,
+    rootComponent: <></>,
+    icon: <FaRssSquare size={16} className="mr-1 text-white"/>
+  }
 ]
 
 export function findTool(name: string): ToolComponent | undefined{
@@ -22,6 +27,12 @@ export const tools: Tool[] = [
     id: Tools.CSS_OUTLINE,
     title: 'CSS Debugger',
     active: false,
-    description: 'This is a css debugger tool'
+    description: 'Enable and disable css outline globally'
+  },
+  {
+    id: Tools.RSS_CHECKER,
+    title: 'RSS Checker',
+    active: true,
+    description: ''
   }
 ]
