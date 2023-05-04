@@ -12,15 +12,16 @@ npm run dev
 The funcionality behind the frontend is hosted at [dev-station-core](https://github.com/cr0wg4n/dev-station-core)
 
 ### Features in development (easy to hard)
-- [ ] CSS outline for debugging (on development)
+- [x] CSS outline for debugging (done!)
+- [x] Quotes and Mantras (done!), Thank you so much https://quotable.io
+- [ ] RSS checker
 - [ ] Image Downloader
 - [ ] Url environment
 - [ ] Lorem Ipsum Generator
 - [ ] Show Element Sizes
 - [ ] Multiple search engine searches
 - [ ] Search for emails, phone numbers and URLs inside websites
-- [x] Quotes and Mantras
 - [ ] Code Highlighting
 - [ ] Windows resizer
 - [ ] Website blocker
-- [ ] RSS checker
+

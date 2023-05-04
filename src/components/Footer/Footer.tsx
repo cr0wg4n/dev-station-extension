@@ -1,15 +1,19 @@
 import React from "react"
+import { METADATA } from "../../config/config"
+
+
+const {creator, homeURL, version} = METADATA
 
 const Footer: React.FC = () => {
-  return <div className="p-3 text-right text-xs bg-neutral text-white">
+  return <div className="p-2 text-right text-xs bg-neutral text-white">
     Made with ❤️ by <a 
-      href="https://github.com/cr0wg4n" 
+      href={homeURL}
       target="_blank" 
       className="underline"
-      title="Follow me for more"
+      title="Get in touch"
     >
-      cr0wg4n
-    </a>
+      { creator }
+    </a> ({version}v)
   </div>
 }
 
