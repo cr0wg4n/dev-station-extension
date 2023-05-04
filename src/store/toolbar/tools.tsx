@@ -16,11 +16,12 @@ export function findTool(name: string): ToolComponent | undefined{
   return index >= 0 ? toolComponents[index] : undefined
 }
 
+// Enabled Tools
 export const tools: Tool[] = [
   {
     id: Tools.CSS_OUTLINE,
     title: 'CSS Debugger',
-    active: true,
+    active: false,
     description: 'This is a css debugger tool'
   }
 ]
