@@ -5,9 +5,9 @@ const QuoteBar: React.FC = () => {
 
   return <div className="p-1 outline-1 outline-black text-justify">
     <div className="text-xs">
-      <strong>Dev Quote:</strong> { content }
+      { content }
     </div>
-    <div className="text-right text-xs">
+    <div className="text-right text-xs italic">
       { author }
     </div>
   </div>
