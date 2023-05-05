@@ -46,7 +46,7 @@ const ToolbarPickerItem: React.FC<ToolbarPickerItemProps> = ({
 
     {
       _show && 
-      <div className="text-sm select-none max-h-32 overflow-auto p-1 bg-white">
+      <div className="text-sm max-h-64 overflow-auto p-1 bg-white">
         { children }
       </div>
     }

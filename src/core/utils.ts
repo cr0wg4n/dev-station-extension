@@ -1,3 +1,5 @@
+import { getRssUrlsFromUrl } from 'rss-url-finder';
+import { RssItem, RssSource } from './types';
 export async function getCurrentTab() {
   const queryOptions = { active: true, currentWindow: true, lastFocusedWindow: true}
   const [tab] = await chrome.tabs.query(queryOptions)
@@ -37,4 +39,23 @@ export async function disableCssDebugger(tabId?: number) {
 
 export function keyStorageName(toolName: string, key: string) {
   return `${toolName}:${key}`
+}
+
+export async function checkRss(url?: string): Promise<RssItem | undefined> {
+  if(url) {
+    return {
+      url,
+      rssSources: await getRssUrlsFromUrl(url)
+    }
+  }
+
+  const tab = await getCurrentTab()
+  if(!url && tab.url) {
+    return {
+      url: tab.url,
+      rssSources: await getRssUrlsFromUrl(tab.url)
+    }
+  }
+
+  return undefined
 }

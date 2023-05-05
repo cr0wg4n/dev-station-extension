@@ -13,7 +13,7 @@ const Switch: React.FC<SwitchProps> = ({
 }: SwitchProps) =>{
   return <>
     <label className="flex items-center cursor-pointer w-10 content-center">
-      <input type="checkbox" className="toggle toggle-success" checked={state} onChange={onChange} />
+      <input type="checkbox" className="toggle toggle-sm toggle-success" checked={state} onChange={onChange} />
       <span className="label-text p-2">
         { state ? enabledName : disabledName }  
       </span> 
