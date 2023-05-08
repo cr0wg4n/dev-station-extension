@@ -5,7 +5,7 @@ import ToolBarPicker from "./components/Toolbar/ToolbarPicker"
 
 function App() {
   return (
-    <div className="w-full outline-2 outline bg-background">
+    <div className="w-96 outline-2 outline bg-background">
       <Navbar title="Dev Station" />
       <ToolBarPicker />
       <QuoteBar />
