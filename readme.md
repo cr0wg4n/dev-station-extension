@@ -4,6 +4,10 @@
 
 The definitive swiss knife extension for Developers and tech enthusiast!
 
+<p align="center">
+    <img src="https://github.com/cr0wg4n/dev-station-extension/blob/development/docs/images/basic_screen.png?raw=true" width="250">
+</p>
+
 ### Current features
 * Quotes and Mantras, random famous quotes for you.
 * CSS Debugging, shows the true appearance of HTML elements
