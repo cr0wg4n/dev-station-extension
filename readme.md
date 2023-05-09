@@ -13,7 +13,7 @@ The definitive swiss knife extension for Developers and tech enthusiast!
 * CSS Debugging, shows the true appearance of HTML elements
 * RSS Checker, checks if the domain have some RSS sources, it scrapes and verifies some common url patterns for RSS feeds.
 
-More feature coming soon!
+More features coming soon!
 
 ### Develpment Usage
 ```sh

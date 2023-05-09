@@ -6,6 +6,7 @@ export interface ToolbarState {
   activeToolName: string
   tools: Tool[]
   activeTool: (name: string) => void
+  deactiveTool: (name: string) => void
   deactiveAll: () => void
 }
 
@@ -21,14 +22,20 @@ const useToolbarStore = create<ToolbarState>((set) => ({
       return {...state, tools, activeToolName: ''}
     })
   },
+  deactiveTool: (name: string) => {
+    set((state)=>{
+      const tools = [...state.tools]
+      const tool = tools.find(i => i.title === name)
+      if(tool) tool.active = false
+      return {...state, tools,  activeToolName: name}
+    })
+  },
   activeTool: (name: string) => {
     set((state)=>{
       const tools = [...state.tools]
-      state.deactiveAll()
-
+      // state.deactiveAll()
       const tool = tools.find(i => i.title === name)
       if(tool) tool.active = true
-
       return {...state, tools,  activeToolName: name}
     })
   },

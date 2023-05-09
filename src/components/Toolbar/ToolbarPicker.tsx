@@ -6,10 +6,13 @@ const ToolBarPicker: React.FC = () => {
   const tools = useToolbarStore((state)=>state.tools)
   const activeToolName = useToolbarStore((state)=>state.activeToolName)
   const activeTool = useToolbarStore((state)=>state.activeTool)
+  const deactiveTool = useToolbarStore((state)=>state.deactiveTool)
 
   const handleClick = (title: string) => {
-    activeTool(title)
-    title === activeToolName && activeTool('')
+    const tool = tools.find((i)=> i.title === title)
+    if(tool) {
+      !tool.active?activeTool(title):deactiveTool(title)
+    }
   }
 
   return <div>
