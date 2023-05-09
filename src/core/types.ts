@@ -3,7 +3,6 @@ export interface RssSource {
   url: string
 }
 
-
 export interface RssItem {
   url: string,
   rssSources: RssSource[]

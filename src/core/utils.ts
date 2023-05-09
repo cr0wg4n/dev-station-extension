@@ -1,5 +1,6 @@
 import { getRssUrlsFromUrl } from 'rss-url-finder';
-import { RssItem, RssSource } from './types';
+import { RssItem } from './types';
+
 export async function getCurrentTab() {
   const queryOptions = { active: true, currentWindow: true, lastFocusedWindow: true}
   const [tab] = await chrome.tabs.query(queryOptions)
@@ -58,4 +59,8 @@ export async function checkRss(url?: string): Promise<RssItem | undefined> {
   }
 
   return undefined
+}
+
+export function copyToClipboard(text: string): void {
+  navigator.clipboard.writeText(text)
 }

@@ -1,6 +1,8 @@
 
 import { useState } from 'react'
 import { FaClipboard, FaShareSquare } from 'react-icons/fa'
+import { copyToClipboard } from '../../../core/utils'
+
 interface UrlContainerProps {
   url: string
   name?: string
@@ -14,7 +16,7 @@ const UrlContainer: React.FC<UrlContainerProps> = ({
 
   const handleClipboard = (text: string)=>{
     setCopied(true)
-    navigator.clipboard.writeText(text)
+    copyToClipboard(text)
     setTimeout(() => {
       setCopied(false)
     }, 1000);
