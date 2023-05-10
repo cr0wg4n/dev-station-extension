@@ -3,6 +3,7 @@ import RssChecker from "../../components/Tools/RssChecker"
 import { ToolComponent, Tools } from "../../core/tools"
 import { Tool } from "./types"
 import { FaCss3Alt, FaRssSquare } from 'react-icons/fa'
+import { BsTextParagraph } from 'react-icons/bs'
 
 const toolComponents: ToolComponent[] = [
   {
@@ -14,6 +15,11 @@ const toolComponents: ToolComponent[] = [
     name: Tools.RSS_CHECKER,
     rootComponent: <RssChecker />,
     icon: <FaRssSquare size={16} className="mr-1 text-white"/>
+  },
+  {
+    name: Tools.LOREM_GENERATOR,
+    rootComponent: <></>,
+    icon: <BsTextParagraph size={16} className="mr-1 text-white"/>
   }
 ]
 
@@ -33,6 +39,12 @@ export const tools: Tool[] = [
   {
     id: Tools.RSS_CHECKER,
     title: 'RSS Checker',
+    active: false,
+    description: ''
+  },
+  {
+    id: Tools.LOREM_GENERATOR,
+    title: 'Lorem Ipsum Generator',
     active: false,
     description: ''
   }

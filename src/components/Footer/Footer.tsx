@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
       title="Get in touch"
     >
       { creator }
-    </a> ({version}v)
+    </a> (v{version})
   </div>
 }
 

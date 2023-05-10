@@ -65,7 +65,7 @@ const RssChecker: React.FC = () => {
         className={`btn btn-xs ${loading ? 'loading' : ''}`}
         onClick={handleClick}
       >
-        {!loading && <FaSearch className="mx-1" size={10}/>}
+        {!loading && <FaSearch className="mr-1" size={10}/>}
         Scan
       </button>
       {
@@ -74,7 +74,7 @@ const RssChecker: React.FC = () => {
           className="btn btn-xs" 
           onClick={handleCopyAll}
         >
-          <FaClipboard className="mx-1" size={10}/> Copy All
+          <FaClipboard className="mr-1" size={10}/> Copy All
         </button>
       }
     </div>
