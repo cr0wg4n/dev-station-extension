@@ -47,7 +47,7 @@ export const tools: Tool[] = [
   {
     id: Tools.LOREM_GENERATOR,
     title: 'Lorem Ipsum Generator',
-    active: true,
+    active: false,
     description: ''
   }
 ]
