@@ -1,9 +1,11 @@
 import CssOutlineDebugger from "../../components/Tools/CssOutlineDebugger"
 import RssChecker from "../../components/Tools/RssChecker"
+import LoremIpsumGenerator from "../../components/Tools/LoremIpsumGenerator"
 import { ToolComponent, Tools } from "../../core/tools"
 import { Tool } from "./types"
 import { FaCss3Alt, FaRssSquare } from 'react-icons/fa'
 import { BsTextParagraph } from 'react-icons/bs'
+
 
 const toolComponents: ToolComponent[] = [
   {
@@ -18,7 +20,7 @@ const toolComponents: ToolComponent[] = [
   },
   {
     name: Tools.LOREM_GENERATOR,
-    rootComponent: <></>,
+    rootComponent: <LoremIpsumGenerator />,
     icon: <BsTextParagraph size={16} className="mr-1 text-white"/>
   }
 ]
@@ -45,7 +47,7 @@ export const tools: Tool[] = [
   {
     id: Tools.LOREM_GENERATOR,
     title: 'Lorem Ipsum Generator',
-    active: false,
+    active: true,
     description: ''
   }
 ]

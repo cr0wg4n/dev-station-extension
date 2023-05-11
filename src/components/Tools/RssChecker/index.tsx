@@ -5,6 +5,7 @@ import UrlContainer from "./UrlContainer"
 import { FaClipboard, FaSearch } from "react-icons/fa"
 import { Tools } from "../../../core/tools"
 import { useChromeStorageLocal } from "use-chrome-storage"
+import useAlertStore from "../../../store/alert"
 
 const INITIAL_STATE = ()=>({
   url: '',
@@ -17,6 +18,7 @@ const RssChecker: React.FC = () => {
   const [loading, setLoading] = useState(false)
   const [nothing, setNothing] = useState(false)
   const [feed, setFeed] = useState<RssItem>(INITIAL_STATE())
+  const { toogle: toogleAlert } = useAlertStore(state => state)
 
   const [lastFeed, setLastFeed] = useChromeStorageLocal<RssItem>(
     toolName, 
@@ -24,6 +26,7 @@ const RssChecker: React.FC = () => {
   )
 
   const handleCopyAll = () => {
+    toogleAlert('success', 'Copied all to clipboard!')
     let text = ''
     feed.rssSources.forEach(({url})=>{
       text += url + '\n'

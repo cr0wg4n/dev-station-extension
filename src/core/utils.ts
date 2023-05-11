@@ -1,5 +1,6 @@
 import { getRssUrlsFromUrl } from 'rss-url-finder';
 import { RssItem } from './types';
+import { loremIpsum } from 'lorem-ipsum';
 
 export async function getCurrentTab() {
   const queryOptions = { active: true, currentWindow: true, lastFocusedWindow: true}
@@ -63,4 +64,33 @@ export async function checkRss(url?: string): Promise<RssItem | undefined> {
 
 export function copyToClipboard(text: string): void {
   navigator.clipboard.writeText(text)
+}
+
+
+export function random(max: number = 10, min: number = 1): number {
+  return Math.floor((Math.random() * max) + min)
+}
+
+
+
+interface LoremIpsumProps {
+  format: 'html'|'plain',
+  count: number,
+  paragraphLowerBound: number,
+  paragraphUpperBound: number,
+}
+
+export function generateLoremIpsum({
+  format, 
+  count, 
+  paragraphLowerBound, 
+  paragraphUpperBound
+}: LoremIpsumProps): string {
+  return loremIpsum({
+    format,
+    count,
+    units: 'paragraph',
+    paragraphLowerBound,
+    paragraphUpperBound,
+  })
 }

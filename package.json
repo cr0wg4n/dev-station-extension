@@ -11,10 +11,11 @@
   "dependencies": {
     "daisyui": "^2.51.6",
     "dev-station-core": "^0.0.1",
+    "lorem-ipsum": "^2.0.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
-    "rss-url-finder": "0.0.4-2",
+    "rss-url-finder": "0.0.5-1",
     "use-chrome-storage": "^1.2.1",
     "zustand": "^4.3.6"
   },
