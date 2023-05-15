@@ -8,7 +8,7 @@ The definitive swiss knife extension for Developers and tech enthusiast!
 Published on [Chrome Web Store](https://chrome.google.com/webstore/detail/dev-station/dkdmpjoenjmbfmkiolekeclfmgcjalbg), please let me know what do you think on [extension's reviews](https://chrome.google.com/webstore/detail/dev-station/dkdmpjoenjmbfmkiolekeclfmgcjalbg/reviews).
 
 <p align="center">
-    <img src="https://github.com/cr0wg4n/dev-station-extension/blob/development/docs/images/main_screen.jpg?raw=true" width="250">
+    <img src="https://github.com/cr0wg4n/dev-station-extension/blob/main/docs/images/main_screen.jpg?raw=true" width="250">
 </p>
 
 ### Current features
