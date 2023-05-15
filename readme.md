@@ -3,9 +3,12 @@
 > For developers by developers ❤️
 
 The definitive swiss knife extension for Developers and tech enthusiast!
+### Try It Now!
+
+Published on [Chrome Web Store](https://chrome.google.com/webstore/detail/dev-station/dkdmpjoenjmbfmkiolekeclfmgcjalbg), please let me know what do you think on [extension's reviews](https://chrome.google.com/webstore/detail/dev-station/dkdmpjoenjmbfmkiolekeclfmgcjalbg/reviews).
 
 <p align="center">
-    <img src="https://github.com/cr0wg4n/dev-station-extension/blob/development/docs/images/basic_screen.png?raw=true" width="250">
+    <img src="https://github.com/cr0wg4n/dev-station-extension/blob/development/docs/images/main_screen.jpg?raw=true" width="250">
 </p>
 
 ### Current features
@@ -21,15 +24,15 @@ npm install
 npm run dev
 ```
 
-### Considerations 
-The funcionality behind the frontend is hosted at [dev-station-core](https://github.com/cr0wg4n/dev-station-core)
+<!-- ### Considerations 
+The funcionality behind the frontend is hosted at [dev-station-core](https://github.com/cr0wg4n/dev-station-core) -->
 
 ### Features in development (easy to hard)
 - [x] CSS outline for debugging
 - [x] Quotes and Mantras, Thank you so much https://quotable.io
 - [x] RSS checker
-- [ ] Lorem Ipsum Generator (On development)
-- [ ] Code Highlighting
+- [x] Lorem Ipsum Generator
+- [ ] Code Highlighting screenshot generator
 - [ ] Image Downloader
 - [ ] Url environment
 - [ ] Show Element Sizes
@@ -37,4 +40,5 @@ The funcionality behind the frontend is hosted at [dev-station-core](https://git
 - [ ] Search for emails, phone numbers and URLs inside websites
 - [ ] Windows resizer
 - [ ] Website blocker
+
 

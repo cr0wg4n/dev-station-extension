@@ -1,6 +1,6 @@
 {
   "name": "Dev Station",
-  "description": "a default tool for developers",
+  "description": "The definitive Swiss Knife extension for developers!",
   "version": "0.0.0.1",
   "manifest_version": 3,
   "action":{
@@ -8,7 +8,6 @@
     "default_title": "Open"
   },
   "permissions": [
-    "webRequest",
     "tabs",
     "scripting",
     "storage"
