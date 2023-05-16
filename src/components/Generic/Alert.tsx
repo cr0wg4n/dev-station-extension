@@ -7,6 +7,7 @@ const Alert: React.FC = () => {
   const { active, message, type } = useAlertStore(state => state)
   let color = ''
   let icon = <></>
+
   if(type == 'error') {
     color = 'bg-error'
     icon = <BiError className="text-white" size={12} /> 
@@ -16,7 +17,7 @@ const Alert: React.FC = () => {
   }
 
   return ( active ?
-    <div className="absolute w-56 ease-in duration-700 top-6 right-0">
+    <div className="absolute w-56 ease-in duration-700 bottom-5 right-0">
       <div className={`${color}`}>
         <div className="flex flex-row">
           <div className="w-full m-2 flex flex-row items-center">

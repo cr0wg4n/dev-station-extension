@@ -15,6 +15,16 @@ chrome.tabs.onActivated.addListener((active)=>{
   });
 })
 
+chrome.tabs.onUpdated.addListener((tabId: number, changeInfo, tab) => {
+  // Persistent CSS Debugger
+  if(changeInfo.status === 'complete') {
+    chrome.storage.local.get([CSS_OUTLINE_STATUS]).then((result) => {
+      result[CSS_OUTLINE_STATUS] && 
+        toogleCssDebugger(result[CSS_OUTLINE_STATUS], tabId)
+    });
+  }
+})
+
 chrome.storage.onChanged.addListener((changes, namespace) => {
   for (let [key, { oldValue, newValue }] of Object.entries(changes)) {
     if(key === CSS_OUTLINE_STATUS){

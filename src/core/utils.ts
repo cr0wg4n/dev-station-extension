@@ -3,8 +3,8 @@ import { RssItem } from './types';
 import { loremIpsum } from 'lorem-ipsum';
 
 export async function getCurrentTab() {
-  const queryOptions = { active: true, currentWindow: true, lastFocusedWindow: true}
-  const [tab] = await chrome.tabs.query(queryOptions)
+  const queryOptions = { active: true, lastFocusedWindow: true}
+  const [ tab ] = await chrome.tabs.query(queryOptions)
   return tab
 }
 
@@ -20,22 +20,24 @@ async function insertCSS(tabId: number, css: string) {
 }
 
 export async function enableCssDebugger(tabId?: number) {
-  const {id} = await getCurrentTab()
   const css = `
     * {
       outline: 1px solid red !important;
     }
   `
+
+  const { id } = await getCurrentTab() || {}
   tabId ? insertCSS(tabId, css) : id && insertCSS(id, css)
 }
 
 export async function disableCssDebugger(tabId?: number) {
-  const {id} = await getCurrentTab()
   const css = `
     * {
       outline: none !important;
     }
   `
+
+  const {id} = await getCurrentTab() || {}
   tabId ? insertCSS(tabId, css) : id && insertCSS(id, css)
 }
 
