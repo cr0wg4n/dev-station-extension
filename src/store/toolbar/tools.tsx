@@ -36,18 +36,18 @@ export const tools: Tool[] = [
     id: Tools.CSS_OUTLINE,
     title: 'CSS Debugger',
     active: false,
-    description: 'Enable and disable css outline globally'
+    description: 'Shows the true appearance of HTML elements, save your time'
   },
   {
     id: Tools.RSS_CHECKER,
     title: 'RSS Checker',
     active: false,
-    description: ''
+    description: 'Checks if the domain have some RSS sources, it scrapes and verifies common URL patterns for RSS feeds'
   },
   {
     id: Tools.LOREM_GENERATOR,
     title: 'Lorem Ipsum Generator',
     active: false,
-    description: ''
+    description: 'Customize your Lorem Ipsums, and generate paragraphs aleatorily'
   }
 ]

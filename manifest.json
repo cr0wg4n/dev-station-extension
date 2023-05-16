@@ -1,7 +1,7 @@
 {
   "name": "Dev Station",
   "description": "The definitive Swiss Knife extension for developers!",
-  "version": "0.0.0.1",
+  "version": "0.0.0.2",
   "manifest_version": 3,
   "action":{
     "default_popup": "index.html",
