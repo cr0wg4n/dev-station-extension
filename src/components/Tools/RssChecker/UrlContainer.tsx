@@ -35,11 +35,11 @@ const UrlContainer: React.FC<UrlContainerProps> = ({
         >
           <FaClipboard className='hover:text-warning' />
         </button>
-        <button className="btn btn-square btn-xs">
           <a href={url} target="_blank" rel="noopener noreferrer">
-            <FaShareSquare className='hover:text-warning' />
+            <button className="btn btn-square btn-xs">
+              <FaShareSquare className='hover:text-warning' />
+            </button>
           </a>
-        </button>
       </div> 
     </div>
   </div>
