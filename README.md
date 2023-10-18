@@ -32,13 +32,14 @@ The funcionality behind the frontend is hosted at [dev-station-core](https://git
 - [x] Quotes and Mantras, Thank you so much https://quotable.io
 - [x] RSS checker
 - [x] Lorem Ipsum Generator
-- [ ] Code Highlighting screenshot generator
+- [ ] Password Generator
+- [ ] Multiple search engine searches
+- [ ] Show Element Sizes
 - [ ] Image Downloader
 - [ ] Url environment
-- [ ] Show Element Sizes
-- [ ] Multiple search engine searches
 - [ ] Search for emails, phone numbers and URLs inside websites
 - [ ] Windows resizer
 - [ ] Website blocker
+<!-- - [ ] Code Highlighting screenshot generator -->
 
 
