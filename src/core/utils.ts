@@ -1,5 +1,5 @@
 import { getRssUrlsFromUrl } from 'rss-url-finder';
-import { RssItem } from './types';
+import { LoremIpsumProps, RssItem } from './types';
 import { loremIpsum } from 'lorem-ipsum';
 
 export async function getCurrentTab() {
@@ -46,22 +46,17 @@ export function keyStorageName(toolName: string, key: string) {
 }
 
 export async function checkRss(url?: string): Promise<RssItem | undefined> {
+  let targetUrl
   if(url) {
-    return {
-      url,
-      rssSources: await getRssUrlsFromUrl(url)
-    }
+    targetUrl = url
+  } else {
+    const tab = await getCurrentTab()
+    targetUrl = tab.url
   }
-
-  const tab = await getCurrentTab()
-  if(!url && tab.url) {
-    return {
-      url: tab.url,
-      rssSources: await getRssUrlsFromUrl(tab.url)
-    }
-  }
-
-  return undefined
+  return targetUrl ? {
+    url: targetUrl,
+    rssSources: await getRssUrlsFromUrl(targetUrl)
+  } : undefined
 }
 
 export function copyToClipboard(text: string): void {
@@ -71,15 +66,6 @@ export function copyToClipboard(text: string): void {
 
 export function random(max: number = 10, min: number = 1): number {
   return Math.floor((Math.random() * max) + min)
-}
-
-
-
-interface LoremIpsumProps {
-  format: 'html'|'plain',
-  count: number,
-  paragraphLowerBound: number,
-  paragraphUpperBound: number,
 }
 
 export function generateLoremIpsum({
