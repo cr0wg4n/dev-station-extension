@@ -43,4 +43,6 @@ The funcionality behind the frontend is hosted at [dev-station-core](https://git
 - [ ] Website blocker
 <!-- - [ ] Code Highlighting screenshot generator -->
 
-
+### Issues 
+- [ ] add labels to icon
+- [ ] ',' kills the numerical input
