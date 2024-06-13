@@ -31,15 +31,21 @@ const UrlContainer: React.FC<UrlContainerProps> = ({
       <div className="flex flex-row gap-2">
         <button
           className="btn btn-square btn-xs" 
+          title="Copy to clipboard"
           onClick={() => handleClipboard(url)}
         >
           <FaClipboard className='hover:text-warning' />
         </button>
-          <a href={url} target="_blank" rel="noopener noreferrer">
-            <button className="btn btn-square btn-xs">
-              <FaShareSquare className='hover:text-warning' />
-            </button>
-          </a>
+        <a 
+          href={url} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          title="Open in a new tab"
+        >
+          <button className="btn btn-square btn-xs">
+            <FaShareSquare className='hover:text-warning' />
+          </button>
+        </a>
       </div> 
     </div>
   </div>

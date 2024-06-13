@@ -40,7 +40,7 @@ The funcionality behind the frontend is hosted at [dev-station-core](https://git
 - [ ] Url environment
 - [ ] Search for emails, phone numbers and URLs inside websites
 - [ ] Windows resizer
-- [ ] Website blocker
+- [ ] Website blocker (add a webpage with rickroll)
 <!-- - [ ] Code Highlighting screenshot generator -->
 
 ### Issues 
