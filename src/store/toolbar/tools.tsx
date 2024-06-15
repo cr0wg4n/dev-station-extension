@@ -1,10 +1,12 @@
 import CssOutlineDebugger from "../../components/Tools/CssOutlineDebugger"
 import RssChecker from "../../components/Tools/RssChecker"
 import LoremIpsumGenerator from "../../components/Tools/LoremIpsumGenerator"
+import WebsiteBlocker from "../../components/Tools/WebsiteBlocker"
 import { ToolComponent, Tools } from "../../core/tools"
 import { Tool } from "./types"
 import { FaCss3Alt, FaRssSquare } from 'react-icons/fa'
 import { BsTextParagraph } from 'react-icons/bs'
+import { MdBlock } from "react-icons/md";
 
 
 const toolComponents: ToolComponent[] = [
@@ -22,6 +24,11 @@ const toolComponents: ToolComponent[] = [
     name: Tools.LOREM_GENERATOR,
     rootComponent: <LoremIpsumGenerator />,
     icon: <BsTextParagraph size={16} className="mr-1 text-white"/>
+  },
+  {
+    name: Tools.WEBSITE_BLOCKER,
+    rootComponent: <WebsiteBlocker />,
+    icon: <MdBlock size={16} className="mr-1 text-white"/>
   }
 ]
 
@@ -44,6 +51,12 @@ export const tools: Tool[] = [
     active: false,
     description: 'Checks if the domain have some RSS sources, it scrapes and verifies common URL patterns for RSS feeds'
   },
+  // {
+  //   id: Tools.WEBSITE_BLOCKER,
+  //   title: 'Website Blocker',
+  //   active: false,
+  //   description: 'Block your anoying websites and be more productive'
+  // },
   {
     id: Tools.LOREM_GENERATOR,
     title: 'Lorem Ipsum Generator',

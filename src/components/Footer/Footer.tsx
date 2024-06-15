@@ -2,7 +2,7 @@ import React from "react"
 import { METADATA } from "../../config/config"
 
 
-const {creator, homeURL, version} = METADATA
+const { creator, homeURL, version } = METADATA
 
 const Footer: React.FC = () => {
   return <div className="p-2 text-right text-xs bg-neutral text-white">
@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
       title="Get in touch"
     >
       { creator }
-    </a> (v{version})
+    </a> (v{version}) 
   </div>
 }
 

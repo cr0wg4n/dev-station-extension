@@ -80,12 +80,16 @@ const LoremIpsumGenerator: React.FC = () => {
         <input 
           type="number"
           className="input input-bordered input-xs w-16"
-          min={1}
+          min={0}
           max={100}
-          value={paragraphs} 
+          value={String(paragraphs)} 
           onChange={(e)=>{
-            const newValue = Number(e.target.value)
-            if(newValue<=100) {
+            const newValue = Number(
+              e.target.value
+                .replace('.', '')
+                .replace(',','')
+            )
+            if(newValue >= 0 && newValue <= 100) {
               setParagraphs(newValue)
             }
           }}
