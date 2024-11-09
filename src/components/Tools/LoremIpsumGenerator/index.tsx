@@ -80,7 +80,7 @@ const LoremIpsumGenerator: React.FC = () => {
         <input 
           type="number"
           className="input input-bordered input-xs w-16"
-          min={0}
+          min={1}
           max={100}
           value={String(paragraphs)} 
           onChange={(e)=>{

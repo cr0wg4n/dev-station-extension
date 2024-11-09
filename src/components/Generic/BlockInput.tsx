@@ -15,7 +15,7 @@ const BlockInput: React.FC<BlockInputProps> = ({
     </div>
     {
       children &&
-      <div className="flex flex-row items-center">
+      <div className="flex flex-row items-center pt-1">
         {children}
       </div>
     }
