@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from 'react'
 
 export enum Tools {
   QUOTES = 'Quotes and Mantras',
@@ -16,7 +16,7 @@ export enum Tools {
 }
 
 export interface ToolComponent {
-  name: string,
-  rootComponent: ReactElement,
+  name: string
+  rootComponent: ReactElement
   icon: ReactElement
 }

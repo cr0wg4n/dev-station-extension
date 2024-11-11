@@ -20,11 +20,11 @@ More features coming soon!
 
 ### Develpment Usage
 ```sh
-npm install 
+npm install
 npm run dev
 ```
 
-<!-- ### Considerations 
+<!-- ### Considerations
 The funcionality behind the frontend is hosted at [dev-station-core](https://github.com/cr0wg4n/dev-station-core) -->
 
 ### Features in development (easy to hard)
@@ -43,6 +43,6 @@ The funcionality behind the frontend is hosted at [dev-station-core](https://git
 - [ ] Website blocker (add a webpage with rickroll)
 <!-- - [ ] Code Highlighting screenshot generator -->
 
-### Issues 
+### Issues
 - [ ] add labels to icon
 - [ ] ',' kills the numerical input

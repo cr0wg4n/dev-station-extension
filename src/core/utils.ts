@@ -1,20 +1,21 @@
-import { getRssUrlsFromUrl } from 'rss-url-finder';
-import { LoremIpsumProps, RssItem } from './types';
-import { loremIpsum } from 'lorem-ipsum';
+import type { LoremIpsumProps, RssItem } from './types'
+import { loremIpsum } from 'lorem-ipsum'
+import { getRssUrlsFromUrl } from 'rss-url-finder'
 
 export async function getCurrentTab() {
-  const queryOptions = { active: true, lastFocusedWindow: true}
-  const [ tab ] = await chrome.tabs.query(queryOptions)
+  const queryOptions = { active: true, lastFocusedWindow: true }
+  const [tab] = await chrome.tabs.query(queryOptions)
   return tab
 }
 
 async function insertCSS(tabId: number, css: string) {
   try {
     await chrome.scripting.insertCSS({
-      target: { tabId: tabId},
-      css
+      target: { tabId },
+      css,
     })
-  } catch (error) {
+  }
+  catch (error) {
     console.log('Insert CSS is not possible:', error)
   }
 }
@@ -37,7 +38,7 @@ export async function disableCssDebugger(tabId?: number) {
     }
   `
 
-  const {id} = await getCurrentTab() || {}
+  const { id } = await getCurrentTab() || {}
   tabId ? insertCSS(tabId, css) : id && insertCSS(id, css)
 }
 
@@ -47,32 +48,34 @@ export function keyStorageName(toolName: string, key: string) {
 
 export async function checkRss(url?: string): Promise<RssItem | undefined> {
   let targetUrl
-  if(url) {
+  if (url) {
     targetUrl = url
-  } else {
+  }
+  else {
     const tab = await getCurrentTab()
     targetUrl = tab.url
   }
-  return targetUrl ? {
-    url: targetUrl,
-    rssSources: await getRssUrlsFromUrl(targetUrl)
-  } : undefined
+  return targetUrl
+    ? {
+        url: targetUrl,
+        rssSources: await getRssUrlsFromUrl(targetUrl),
+      }
+    : undefined
 }
 
 export function copyToClipboard(text: string): void {
   navigator.clipboard.writeText(text)
 }
 
-
 export function random(max: number = 10, min: number = 1): number {
   return Math.floor((Math.random() * max) + min)
 }
 
 export function generateLoremIpsum({
-  format, 
-  count, 
-  paragraphLowerBound, 
-  paragraphUpperBound
+  format,
+  count,
+  paragraphLowerBound,
+  paragraphUpperBound,
 }: LoremIpsumProps): string {
   return loremIpsum({
     format,

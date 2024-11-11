@@ -1,25 +1,29 @@
-import { ReactElement } from "react"
+import type { ReactElement } from 'react'
 
 interface BlockInputProps {
-  name: string,
+  name: string
   children?: ReactElement[] | ReactElement
-} 
+}
 
-const BlockInput: React.FC<BlockInputProps> = ({ 
+const BlockInput: React.FC<BlockInputProps> = ({
   name,
-  children
+  children,
 }: BlockInputProps) => {
-  return <div className="flex flex-col text-xs py-1">
-    <div className="capitalize select-none">
-      {name}
-    </div>
-    {
-      children &&
-      <div className="flex flex-row items-center pt-1">
-        {children}
+  return (
+    <div className="flex flex-col text-xs py-1">
+      <div className="capitalize select-none">
+        {name}
       </div>
-    }
-  </div>
+      {
+        children
+        && (
+          <div className="flex flex-row items-center pt-1">
+            {children}
+          </div>
+        )
+      }
+    </div>
+  )
 }
 
 export default BlockInput

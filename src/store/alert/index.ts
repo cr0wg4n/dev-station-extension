@@ -9,22 +9,22 @@ export interface AlertState {
 
 export type AlertTypes = 'error' | 'success'
 
-const useAlertStore = create<AlertState>((set) => ({
+const useAlertStore = create<AlertState>(set => ({
   active: false,
   message: '',
   type: 'success',
   toogle: (type: AlertTypes, message: string) => {
     // On
     set((state) => {
-      return {...state, active: true, message, type}
+      return { ...state, active: true, message, type }
     })
     setTimeout(() => {
       // Of
       set((state) => {
-        return {...state, active: false}
+        return { ...state, active: false }
       })
-    }, 1500);
-  }
+    }, 1500)
+  },
 }))
 
-export default  useAlertStore
+export default useAlertStore

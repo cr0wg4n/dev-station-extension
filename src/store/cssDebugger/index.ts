@@ -1,20 +1,19 @@
-import { create } from "zustand"
-import { persist } from "zustand/middleware"
+import { create } from 'zustand'
 
 export interface CssDebugger {
-  enabled: boolean,
-  setEnabled: (newState: boolean)=>void
+  enabled: boolean
+  setEnabled: (newState: boolean) => void
 }
 
 const useCssDebuggerStore = create<CssDebugger>(
-  (set) => ({
+  set => ({
     enabled: false,
     setEnabled: (newState: boolean) => {
-      set((state)=>{
-        return {...state, enabled: newState}
+      set((state) => {
+        return { ...state, enabled: newState }
       })
-    }
-  })
+    },
+  }),
 )
 
 export default useCssDebuggerStore

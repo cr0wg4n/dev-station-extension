@@ -1,5 +1,5 @@
-import { Tool } from './types';
-import { create } from "zustand";
+import type { Tool } from './types'
+import { create } from 'zustand'
 import { tools } from './tools'
 
 export interface ToolbarState {
@@ -10,33 +10,35 @@ export interface ToolbarState {
   deactiveAll: () => void
 }
 
-const useToolbarStore = create<ToolbarState>((set) => ({
+const useToolbarStore = create<ToolbarState>(set => ({
   activeToolName: '',
   tools,
   deactiveAll: () => {
-    set((state)=>{
+    set((state) => {
       const tools = [...state.tools]
-      tools.forEach(i=>{
+      tools.forEach((i) => {
         i.active = false
       })
-      return {...state, tools, activeToolName: ''}
+      return { ...state, tools, activeToolName: '' }
     })
   },
   deactiveTool: (name: string) => {
-    set((state)=>{
+    set((state) => {
       const tools = [...state.tools]
       const tool = tools.find(i => i.title === name)
-      if(tool) tool.active = false
-      return {...state, tools,  activeToolName: name}
+      if (tool)
+        tool.active = false
+      return { ...state, tools, activeToolName: name }
     })
   },
   activeTool: (name: string) => {
-    set((state)=>{
+    set((state) => {
       const tools = [...state.tools]
       // state.deactiveAll()
       const tool = tools.find(i => i.title === name)
-      if(tool) tool.active = true
-      return {...state, tools,  activeToolName: name}
+      if (tool)
+        tool.active = true
+      return { ...state, tools, activeToolName: name }
     })
   },
 }))

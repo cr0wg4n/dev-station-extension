@@ -1,8 +1,8 @@
-import Footer from "./components/Footer/Footer"
-import Navbar from "./components/Navbar/Navbar"
-import QuoteBar from "./components/Tools/QuoteBar"
-import ToolBarPicker from "./components/Toolbar/ToolbarPicker"
-import Alert from "./components/Generic/Alert"
+import Footer from './components/Footer/Footer'
+import Alert from './components/Generic/Alert'
+import Navbar from './components/Navbar/Navbar'
+import ToolBarPicker from './components/Toolbar/ToolbarPicker'
+import QuoteBar from './components/Tools/QuoteBar'
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <ToolBarPicker />
       <QuoteBar />
       <Alert />
-      <Footer/>
+      <Footer />
     </div>
   )
 }

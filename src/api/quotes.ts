@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react'
 import quotes from '../data/quotes.json'
 
 export interface Quote {
@@ -15,27 +14,27 @@ export async function getQuotes(): Promise<Quote> {
 export function useQuotes(): { quote: Quote, loaded: boolean, failed: boolean } {
   const [quote, setQuote] = useState<Quote>({
     author: '',
-    content: ''
+    content: '',
   })
   const [loaded, setLoaded] = useState(false)
   const [failed, setFailed] = useState(false)
   useEffect(() => {
     const fetch = async () => {
-      const quotes =  await getQuotes()
+      const quotes = await getQuotes()
       setLoaded(true)
       return quotes
     }
 
-    fetch().then((response: Quote)=>{
+    fetch().then((response: Quote) => {
       setQuote(response)
-    }).catch(()=>{
+    }).catch(() => {
       setFailed(true)
     })
-  },[])
+  }, [])
 
   return {
     quote,
     loaded,
-    failed
+    failed,
   }
 }
