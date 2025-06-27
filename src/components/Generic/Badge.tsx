@@ -6,7 +6,7 @@ interface BadgeProps {
 
 const Badge: React.FC<BadgeProps> = ({ children }: BadgeProps) => {
   return (
-    <div className="rounded-xl bg-primary text-white px-2 py-1">
+    <div className="min-w-10 truncate rounded-xl bg-primary text-white px-2 py-1">
       {children}
     </div>
   )
