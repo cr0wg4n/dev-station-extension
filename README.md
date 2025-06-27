@@ -31,6 +31,7 @@ npm run dev
 - [x] Quotes and Mantras, Thank you so much https://quotable.io
 - [x] RSS checker
 - [x] Lorem Ipsum Generator
+- [ ] Improvement: Status Tabs, save status
 - [ ] Color Picker
 - [ ] Custom Script loader
 - [ ] Website blocker (add a webpage with rickroll)
