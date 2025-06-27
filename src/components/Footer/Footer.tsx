@@ -1,15 +1,16 @@
-import React from 'react'
-import { METADATA } from '../../config/config'
+interface FooterProps {
+  creator: string
+  url: string
+  version: string
+}
 
-const { creator, homeURL, version } = METADATA
-
-const Footer: React.FC = () => {
+const Footer: React.FC<FooterProps> = ({ creator, url, version }: FooterProps) => {
   return (
     <div className="p-2 text-right text-xs bg-neutral text-white">
       Made with ❤️ by
       {' '}
       <a
-        href={homeURL}
+        href={url}
         target="_blank"
         className="underline"
         title="Get in touch"

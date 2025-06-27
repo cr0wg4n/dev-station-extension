@@ -1,5 +1,6 @@
-import { Tools } from './core/tools'
 import { disableCssDebugger, enableCssDebugger, keyStorageName } from './core/utils'
+
+import { Tools } from './core/tools'
 
 // CSS Debuger
 const CSS_OUTLINE_STATUS = keyStorageName(Tools.CSS_OUTLINE, 'status')
@@ -15,7 +16,7 @@ chrome.tabs.onActivated.addListener((active) => {
   })
 })
 
-chrome.tabs.onUpdated.addListener((tabId: number, changeInfo, tab) => {
+chrome.tabs.onUpdated.addListener((tabId: number, changeInfo, _tab) => {
   // Persistent CSS Debugger
   if (changeInfo.status === 'complete') {
     chrome.storage.local.get([CSS_OUTLINE_STATUS]).then((result) => {
@@ -25,7 +26,7 @@ chrome.tabs.onUpdated.addListener((tabId: number, changeInfo, tab) => {
   }
 })
 
-chrome.storage.onChanged.addListener((changes, namespace) => {
+chrome.storage.onChanged.addListener((changes, _namespace) => {
   for (const [key, { oldValue, newValue }] of Object.entries(changes)) {
     if (key === CSS_OUTLINE_STATUS) {
       toogleCssDebugger(newValue)

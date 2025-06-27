@@ -1,6 +1,7 @@
 import type { LoremIpsumProps, RssItem } from './types'
-import { loremIpsum } from 'lorem-ipsum'
+
 import { getRssUrlsFromUrl } from 'rss-url-finder'
+import { loremIpsum } from 'lorem-ipsum'
 
 export async function getCurrentTab() {
   const queryOptions = { active: true, lastFocusedWindow: true }
@@ -16,7 +17,7 @@ async function insertCSS(tabId: number, css: string) {
     })
   }
   catch (error) {
-    console.log('Insert CSS is not possible:', error)
+    console.error('Insert CSS is not possible:', error)
   }
 }
 

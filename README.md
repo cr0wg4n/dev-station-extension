@@ -20,29 +20,30 @@ More features coming soon!
 
 ### Develpment Usage
 ```sh
+nvm install
+nvm use
 npm install
 npm run dev
 ```
-
-<!-- ### Considerations
-The funcionality behind the frontend is hosted at [dev-station-core](https://github.com/cr0wg4n/dev-station-core) -->
 
 ### Features in development (easy to hard)
 - [x] CSS outline for debugging
 - [x] Quotes and Mantras, Thank you so much https://quotable.io
 - [x] RSS checker
 - [x] Lorem Ipsum Generator
+- [ ] Color Picker
+- [ ] Custom Script loader
+- [ ] Website blocker (add a webpage with rickroll)
 - [ ] Website metadata extractor (tag analyzer)
 - [ ] Password Generator
 - [ ] Multiple search engine searches
 - [ ] Show Element Sizes
 - [ ] Image Downloader
-- [ ] Url environment
 - [ ] Search for emails, phone numbers and URLs inside websites
 - [ ] Windows resizer
-- [ ] Website blocker (add a webpage with rickroll)
 <!-- - [ ] Code Highlighting screenshot generator -->
 
 ### Issues
 - [ ] add labels to icon
 - [ ] ',' kills the numerical input
+- [ ] Improce code quality
