@@ -1,4 +1,4 @@
-import BlockInput from '../../Generic/BlockInput'
+import BlockInput from '@/components/Generic/BlockInput'
 
 const WebsiteBlocker: React.FC = () => {
   return (

@@ -1,11 +1,12 @@
-import type { RssItem } from '../../../core/types'
-import { useEffect, useState } from 'react'
 import { FaClipboard, FaSearch } from 'react-icons/fa'
-import { useChromeStorageLocal } from 'use-chrome-storage'
-import { Tools } from '../../../core/tools'
-import { checkRss, copyToClipboard } from '../../../core/utils'
-import useAlertStore from '../../../store/alert'
+import { checkRss, copyToClipboard } from '@/core/utils'
+import { useEffect, useState } from 'react'
+
+import type { RssItem } from '@/core/types'
+import { Tools } from '@/core/tools'
 import UrlContainer from './UrlContainer'
+import useAlertStore from '@/store/alert'
+import { useChromeStorageLocal } from 'use-chrome-storage'
 
 function INITIAL_STATE() {
   return {

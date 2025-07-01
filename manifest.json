@@ -22,6 +22,5 @@
   "host_permissions": [
     "https://*/*",
     "http://*/*"
-  ],
-  "author": "Mauricio Matias"
+  ]
 }

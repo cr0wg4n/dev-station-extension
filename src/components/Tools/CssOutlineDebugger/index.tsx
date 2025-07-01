@@ -1,7 +1,7 @@
+import Switch from '@/components/Generic/Switch'
+import { Tools } from '@/core/tools'
+import { keyStorageName } from '@/core/utils'
 import { useChromeStorageLocal } from 'use-chrome-storage'
-import { Tools } from '../../../core/tools'
-import { keyStorageName } from '../../../core/utils'
-import Switch from '../../Generic/Switch'
 
 export const toolName = Tools.CSS_OUTLINE
 

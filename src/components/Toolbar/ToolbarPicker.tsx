@@ -1,6 +1,6 @@
-import useToolbarStore from '../../store/toolbar'
-import { findTool } from '../../store/toolbar/tools'
 import ToolbarPickerItem from './ToolbarPickerItem'
+import { findTool } from '@/store/toolbar/tools'
+import useToolbarStore from '@/store/toolbar'
 
 const ToolBarPicker: React.FC = () => {
   const tools = useToolbarStore(state => state.tools)

@@ -1,6 +1,7 @@
 import { FaClipboard, FaShareSquare } from 'react-icons/fa'
-import { copyToClipboard } from '../../../core/utils'
-import useAlertStore from '../../../store/alert'
+
+import { copyToClipboard } from '@/core/utils'
+import useAlertStore from '@/store/alert'
 
 interface UrlContainerProps {
   url: string

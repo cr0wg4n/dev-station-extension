@@ -1,6 +1,6 @@
-import Badge from '../../components/Generic/Badge'
+import Badge from '@/components/Generic/Badge'
 import React from 'react'
-import logo from '../../assets/icon.png'
+import logo from '@/assets/icon.png'
 
 export interface NavbarProps {
   title: string

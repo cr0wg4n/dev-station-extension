@@ -1,6 +1,7 @@
-import { disableCssDebugger, enableCssDebugger, keyStorageName } from './core/utils'
+import { disableCssDebugger, enableCssDebugger } from './core/styling'
 
 import { Tools } from './core/tools'
+import { keyStorageName } from './core/utils'
 
 // CSS Debuger
 const CSS_OUTLINE_STATUS = keyStorageName(Tools.CSS_OUTLINE, 'status')

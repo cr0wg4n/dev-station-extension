@@ -1,6 +1,6 @@
 import { BiError } from 'react-icons/bi'
 import { FaCheckCircle } from 'react-icons/fa'
-import useAlertStore from '../../store/alert'
+import useAlertStore from '@/store/alert'
 
 const Alert: React.FC = () => {
   const { active, message, type } = useAlertStore(state => state)

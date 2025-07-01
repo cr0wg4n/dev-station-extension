@@ -1,4 +1,4 @@
-import { useQuotes } from '../../api/quotes'
+import { useQuotes } from '@/api/quotes'
 
 const QuoteBar: React.FC = () => {
   const { quote: { content, author }, loaded } = useQuotes()

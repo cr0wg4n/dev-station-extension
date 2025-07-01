@@ -1,13 +1,14 @@
-import type { ToolComponent } from '../../core/tools'
-import type { Tool } from './types'
-import { BsTextParagraph } from 'react-icons/bs'
 import { FaCss3Alt, FaRssSquare } from 'react-icons/fa'
+
+import { BsTextParagraph } from 'react-icons/bs'
+import CssOutlineDebugger from '@/components/Tools/CssOutlineDebugger'
+import LoremIpsumGenerator from '@/components/Tools/LoremIpsumGenerator'
 import { MdBlock } from 'react-icons/md'
-import CssOutlineDebugger from '../../components/Tools/CssOutlineDebugger'
-import LoremIpsumGenerator from '../../components/Tools/LoremIpsumGenerator'
-import RssChecker from '../../components/Tools/RssChecker'
-import WebsiteBlocker from '../../components/Tools/WebsiteBlocker'
-import { Tools } from '../../core/tools'
+import RssChecker from '@/components/Tools/RssChecker'
+import type { Tool } from './types'
+import type { ToolComponent } from '@/core/tools'
+import { Tools } from '@/core/tools'
+import WebsiteBlocker from '@/components/Tools/WebsiteBlocker'
 
 const toolComponents: ToolComponent[] = [
   {

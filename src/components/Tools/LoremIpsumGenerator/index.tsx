@@ -1,9 +1,12 @@
-import { useEffect, useState } from 'react'
-import { FaClipboard, FaDice } from 'react-icons/fa'
-import { copyToClipboard, generateLoremIpsum, random } from '../../../core/utils'
-import useAlertStore from '../../../store/alert'
-import BlockInput from '../../Generic/BlockInput'
 import './custom.css'
+
+import { FaClipboard, FaDice } from 'react-icons/fa'
+import { copyToClipboard, random } from '@/core/utils'
+import { useEffect, useState } from 'react'
+
+import BlockInput from '@/components/Generic/BlockInput'
+import { generateLoremIpsum } from '@/core/texts'
+import useAlertStore from '@/store/alert'
 
 const LoremIpsumGenerator: React.FC = () => {
   const [minSentenceParagraph, setMinSentenceParagraph] = useState(4)
