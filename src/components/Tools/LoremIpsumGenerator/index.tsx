@@ -53,6 +53,17 @@ const LoremIpsumGenerator: React.FC = () => {
     toogleAlert('success', 'Copied to clipboard!')
   }
 
+  const onChangeParagraphInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = Number(
+      event.target.value
+        .replace('.', '')
+        .replace(',', ''),
+    )
+    if (newValue >= 0 && newValue <= 100) {
+      setParagraphs(newValue)
+    }
+  }
+
   useEffect(() => {
     doCopyToClipboard()
   }, [lorem])
@@ -104,19 +115,10 @@ const LoremIpsumGenerator: React.FC = () => {
             min={1}
             max={100}
             value={String(paragraphs)}
-            onChange={(e) => {
-              const newValue = Number(
-                e.target.value
-                  .replace('.', '')
-                  .replace(',', ''),
-              )
-              if (newValue >= 0 && newValue <= 100) {
-                setParagraphs(newValue)
-              }
-            }}
+            onChange={onChangeParagraphInput}
           />
         </div>
-        <button className="btn btn-xs" onClick={() => handleRandom()}>
+        <button className="btn btn-xs" onClick={handleRandom}>
           <FaDice className="mr-1" />
           Random & Copy
         </button>

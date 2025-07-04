@@ -18,10 +18,10 @@ const ToolbarPickerItem: React.FC<ToolbarPickerItemProps> = ({
   icon,
   onClick,
 }: ToolbarPickerItemProps) => {
-  const [_show, setShow] = useState(active)
+  const [isTabActive, setTabActive] = useState(active)
 
   useEffect(() => {
-    setShow(active)
+    setTabActive(active)
   }, [active])
 
   return (
@@ -36,7 +36,7 @@ const ToolbarPickerItem: React.FC<ToolbarPickerItemProps> = ({
       >
         <div className="mr-4 rounded-full bg-slate-50 p-1 flex items-center justify-center">
           {
-            !_show
+            !isTabActive
               ? <FaChevronDown size={12} />
               : <FaChevronUp size={12} />
           }
@@ -48,7 +48,7 @@ const ToolbarPickerItem: React.FC<ToolbarPickerItemProps> = ({
       </div>
 
       {
-        _show
+        isTabActive
         && (
           <div className="text-sm max-h-64 p-1 overflow-auto bg-white">
             { children }

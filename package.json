@@ -3,6 +3,10 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
+  "author": {
+    "name": "Mauricio Matias Conde",
+    "email": "mmatias@lowleveltech.com"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

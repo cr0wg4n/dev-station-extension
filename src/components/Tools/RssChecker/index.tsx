@@ -37,28 +37,26 @@ const RssChecker: React.FC = () => {
     copyToClipboard(text.trim())
   }
 
-  const handleClick = () => {
+  const handleScan = async () => {
     setLoading(true)
-    checkRss()
-      .then((rssFeed) => {
-        setFeed(INITIAL_STATE())
-        if (rssFeed) {
-          setLastFeed(rssFeed)
-
-          if (rssFeed.rssSources.length <= 0) {
-            setNothing(true)
-          }
-          else {
-            setFeed(rssFeed)
-          }
-        }
-        else {
-          setNothing(true)
-        }
-      })
-      .finally(() => {
-        setLoading(false)
-      })
+    try {
+      const rssFeed = await checkRss()
+      setFeed(INITIAL_STATE())
+      if (rssFeed && rssFeed.rssSources.length > 0) {
+        setFeed(rssFeed)
+        setLastFeed(rssFeed)
+      }
+      else {
+        setNothing(true)
+      }
+    }
+    catch (error) {
+      console.error(error)
+      setNothing(true)
+    }
+    finally {
+      setLoading(false)
+    }
   }
 
   useEffect(() => {
@@ -72,7 +70,7 @@ const RssChecker: React.FC = () => {
       <div className="flex items-center flex-row gap-2 justify-center">
         <button
           className={`btn btn-xs ${loading ? 'loading' : ''}`}
-          onClick={handleClick}
+          onClick={handleScan}
         >
           {!loading && <FaSearch className="mr-1" size={10} />}
           Scan
