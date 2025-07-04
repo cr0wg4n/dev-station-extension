@@ -1,5 +1,5 @@
 import ToolbarPickerItem from './ToolbarPickerItem'
-import { findTool } from '@/store/toolbar/tools'
+import { buildTool } from '@/core/toolBuilder'
 import useToolbarStore from '@/store/toolbar'
 
 const ToolBarPicker: React.FC = () => {
@@ -18,7 +18,7 @@ const ToolBarPicker: React.FC = () => {
     <div>
       {
         tools.map(({ id, title, active, description }) => {
-          const tool = findTool(id)
+          const tool = buildTool(id)
           return (
             <ToolbarPickerItem
               id={id}

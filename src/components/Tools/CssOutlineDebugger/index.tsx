@@ -1,5 +1,5 @@
 import Switch from '@/components/Generic/Switch'
-import { Tools } from '@/core/tools'
+import { Tools } from '@/core/enums'
 import { keyStorageName } from '@/core/utils'
 import { useChromeStorageLocal } from 'use-chrome-storage'
 

@@ -1,15 +1,36 @@
 import { FaCss3Alt, FaRssSquare } from 'react-icons/fa'
-import type { Tool, ToolComponent } from '@/core/tools'
+import type { Tool, ToolComponent } from '@/core/types'
 
 import { BsTextParagraph } from 'react-icons/bs'
 import CssOutlineDebugger from '@/components/Tools/CssOutlineDebugger'
 import LoremIpsumGenerator from '@/components/Tools/LoremIpsumGenerator'
 import { MdBlock } from 'react-icons/md'
 import RssChecker from '@/components/Tools/RssChecker'
-import { Tools } from '@/core/tools'
+import { Tools } from '@/core/enums'
 import WebsiteBlocker from '@/components/Tools/WebsiteBlocker'
 
-const toolComponents: ToolComponent[] = [
+const enabledTools: Array<Tool> = [
+  {
+    id: Tools.CSS_OUTLINE,
+    title: 'CSS Debugger',
+    active: false,
+    description: 'Shows the true appearance of HTML elements, save your time',
+  },
+  {
+    id: Tools.RSS_CHECKER,
+    title: 'RSS Checker',
+    active: false,
+    description: 'Checks if the domain have some RSS sources, it scrapes and verifies common URL patterns for RSS feeds',
+  },
+  {
+    id: Tools.LOREM_GENERATOR,
+    title: 'Lorem Ipsum Generator',
+    active: false,
+    description: 'Customize your Lorem Ipsums, and generate paragraphs aleatorily',
+  },
+]
+
+const toolComponents: Array<ToolComponent> = [
   {
     name: Tools.CSS_OUTLINE,
     rootComponent: <CssOutlineDebugger />,
@@ -32,29 +53,12 @@ const toolComponents: ToolComponent[] = [
   },
 ]
 
-export function findTool(name: string): ToolComponent | undefined {
+function buildTool(name: Tools): ToolComponent | undefined {
   const index = toolComponents.findIndex(t => t.name === name)
   return index >= 0 ? toolComponents[index] : undefined
 }
 
-// Enabled Tools
-export const tools: Tool[] = [
-  {
-    id: Tools.CSS_OUTLINE,
-    title: 'CSS Debugger',
-    active: false,
-    description: 'Shows the true appearance of HTML elements, save your time',
-  },
-  {
-    id: Tools.RSS_CHECKER,
-    title: 'RSS Checker',
-    active: false,
-    description: 'Checks if the domain have some RSS sources, it scrapes and verifies common URL patterns for RSS feeds',
-  },
-  {
-    id: Tools.LOREM_GENERATOR,
-    title: 'Lorem Ipsum Generator',
-    active: false,
-    description: 'Customize your Lorem Ipsums, and generate paragraphs aleatorily',
-  },
-]
+export {
+  buildTool,
+  enabledTools,
+}

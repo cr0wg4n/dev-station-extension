@@ -1,10 +1,10 @@
-import type { Tool } from '@/core/tools'
+import type { Tool } from '@/core/types'
 import { create } from 'zustand'
-import { tools } from './tools'
+import { enabledTools } from '@/core/toolBuilder'
 
 export interface ToolbarState {
   activeToolName: string
-  tools: Tool[]
+  tools: Array<Tool>
   activeTool: (name: string) => void
   deactiveTool: (name: string) => void
   deactiveAll: () => void
@@ -12,7 +12,7 @@ export interface ToolbarState {
 
 const useToolbarStore = create<ToolbarState>(set => ({
   activeToolName: '',
-  tools,
+  tools: enabledTools,
   deactiveAll: () => {
     set((state) => {
       const tools = [...state.tools]
