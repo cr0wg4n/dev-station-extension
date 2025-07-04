@@ -21,7 +21,7 @@ const RssChecker: React.FC = () => {
   const [loading, setLoading] = useState(false)
   const [nothing, setNothing] = useState(false)
   const [feed, setFeed] = useState<RssItem>(INITIAL_STATE())
-  const { toogle: toogleAlert } = useAlertStore(state => state)
+  const { toggle: toggleAlert } = useAlertStore(state => state)
 
   const [lastFeed, setLastFeed] = useChromeStorageLocal<RssItem>(
     toolName,
@@ -29,7 +29,7 @@ const RssChecker: React.FC = () => {
   )
 
   const handleCopyAll = () => {
-    toogleAlert('success', 'Copied all to clipboard!')
+    toggleAlert('success', 'Copied all to clipboard!')
     let text = ''
     feed.rssSources.forEach(({ url }) => {
       text += `${url}\n`
@@ -51,7 +51,7 @@ const RssChecker: React.FC = () => {
       }
     }
     catch (error) {
-      console.error(error)
+      toggleAlert('error', 'The target is not valid')
       setNothing(true)
     }
     finally {
@@ -76,7 +76,7 @@ const RssChecker: React.FC = () => {
           Scan
         </button>
         {
-          feed?.rssSources.length > 0 && !loading
+          feed?.rssSources.length > 0 && !loading && !nothing
           && (
             <button
               className="btn btn-xs"
@@ -107,10 +107,12 @@ const RssChecker: React.FC = () => {
                 && (
                   <>
                     <div className="pt-2">
-                      <div className="text-xs pb-1 text-ellipsis whitespace-nowrap overflow-hidden">
-                        <strong>Latest scanned:</strong>
+                      <div className="text-xs pb-1 truncate">
+                        <strong>Latest successfully scanned:</strong>
                         {' '}
-                        { lastFeed.url }
+                        <span title={lastFeed.url}>
+                          { lastFeed.url }
+                        </span>
                       </div>
                       {feed?.rssSources.map(({ name, url }) => (
                         <UrlContainer

@@ -13,7 +13,7 @@ const LoremIpsumGenerator: React.FC = () => {
   const [maxSentenceParagraph, setMaxSentenceParagraph] = useState(8)
   const [paragraphs, setParagraphs] = useState(1)
   const [lorem, setLorem] = useState('')
-  const { toogle: toogleAlert } = useAlertStore(state => state)
+  const { toggle: toggleAlert } = useAlertStore(state => state)
 
   const generateLorem = () => {
     return generateLoremIpsum({
@@ -41,7 +41,7 @@ const LoremIpsumGenerator: React.FC = () => {
 
   const handleCopy = () => {
     doCopyToClipboard()
-    toogleAlert('success', 'Copied to clipboard!')
+    toggleAlert('success', 'Copied to clipboard!')
   }
 
   const handleRandom = () => {
@@ -50,7 +50,7 @@ const LoremIpsumGenerator: React.FC = () => {
     setParagraphs(random(10, 1))
     setMinSentenceParagraph(min)
     setMaxSentenceParagraph(max)
-    toogleAlert('success', 'Copied to clipboard!')
+    toggleAlert('success', 'Copied to clipboard!')
   }
 
   const onChangeParagraphInput = (event: React.ChangeEvent<HTMLInputElement>) => {

@@ -4,26 +4,32 @@ export interface AlertState {
   active: boolean
   message: string
   type: AlertTypes
-  toogle: (type: AlertTypes, message: string) => void
+  timeoutId: number | undefined
+  toggle: (type: AlertTypes, message: string, duration?: number) => void
 }
 
 export type AlertTypes = 'error' | 'success'
 
-const useAlertStore = create<AlertState>(set => ({
+const useAlertStore = create<AlertState>((set, get) => ({
   active: false,
   message: '',
   type: 'success',
-  toogle: (type: AlertTypes, message: string) => {
+  timeoutId: undefined,
+  toggle: (type: AlertTypes, message: string, duration = 2000) => {
+    const { timeoutId } = get()
+    if (timeoutId) {
+      clearTimeout(timeoutId)
+    }
+
+    const newTimeoutId = setTimeout(() => {
+      // Off
+      set({ active: false, message: '', timeoutId: undefined })
+    }, duration)
+
     // On
     set((state) => {
-      return { ...state, active: true, message, type }
+      return { ...state, active: true, message, type, timeoutId: newTimeoutId }
     })
-    setTimeout(() => {
-      // Of
-      set((state) => {
-        return { ...state, active: false }
-      })
-    }, 1500)
   },
 }))
 

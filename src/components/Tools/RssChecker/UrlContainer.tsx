@@ -12,20 +12,20 @@ const UrlContainer: React.FC<UrlContainerProps> = ({
   name,
   url,
 }: UrlContainerProps) => {
-  const { toogle: toogleAlert } = useAlertStore(state => state)
+  const { toggle: toggleAlert } = useAlertStore(state => state)
 
   const handleClipboard = (text: string) => {
-    toogleAlert('success', 'Copied to clipboard!')
+    toggleAlert('success', 'Copied to clipboard!')
     copyToClipboard(text)
   }
 
   return (
     <div className="text-left w-full mb-1 bg-slate-200 p-2 text-xs">
-      <div className="text-ellipsis whitespace-nowrap overflow-hidden font-bold">
+      <div className="truncate font-bold">
         {name}
       </div>
       <div className="flex flex-row justify-between items-center">
-        <div className="text-ellipsis whitespace-nowrap overflow-hidden">
+        <div className="truncate">
           {url}
         </div>
         <div className="flex flex-row gap-2">
