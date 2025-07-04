@@ -1,12 +1,11 @@
 import { FaCss3Alt, FaRssSquare } from 'react-icons/fa'
+import type { Tool, ToolComponent } from '@/core/tools'
 
 import { BsTextParagraph } from 'react-icons/bs'
 import CssOutlineDebugger from '@/components/Tools/CssOutlineDebugger'
 import LoremIpsumGenerator from '@/components/Tools/LoremIpsumGenerator'
 import { MdBlock } from 'react-icons/md'
 import RssChecker from '@/components/Tools/RssChecker'
-import type { Tool } from './types'
-import type { ToolComponent } from '@/core/tools'
 import { Tools } from '@/core/tools'
 import WebsiteBlocker from '@/components/Tools/WebsiteBlocker'
 
@@ -52,12 +51,6 @@ export const tools: Tool[] = [
     active: false,
     description: 'Checks if the domain have some RSS sources, it scrapes and verifies common URL patterns for RSS feeds',
   },
-  // {
-  //   id: Tools.WEBSITE_BLOCKER,
-  //   title: 'Website Blocker',
-  //   active: false,
-  //   description: 'Block your anoying websites and be more productive'
-  // },
   {
     id: Tools.LOREM_GENERATOR,
     title: 'Lorem Ipsum Generator',

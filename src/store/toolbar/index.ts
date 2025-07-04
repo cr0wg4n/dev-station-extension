@@ -1,4 +1,4 @@
-import type { Tool } from './types'
+import type { Tool } from '@/core/tools'
 import { create } from 'zustand'
 import { tools } from './tools'
 

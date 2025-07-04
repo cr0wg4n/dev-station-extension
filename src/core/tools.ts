@@ -20,3 +20,10 @@ export interface ToolComponent {
   rootComponent: ReactElement
   icon: ReactElement
 }
+
+export interface Tool {
+  id: string
+  title: string
+  active: boolean
+  description?: string
+}

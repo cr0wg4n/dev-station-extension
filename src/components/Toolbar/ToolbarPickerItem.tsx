@@ -2,7 +2,7 @@ import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
 
 import type { ReactElement } from 'react'
-import type { Tool } from '@/store/toolbar/types'
+import type { Tool } from '@/core/tools'
 
 interface ToolbarPickerItemProps extends Tool {
   children?: ReactElement
