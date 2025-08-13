@@ -10,7 +10,7 @@ export interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ title, subtitle, devMode = false }: NavbarProps) => {
   return (
-    <div className="w-full p-2 text-white bg-neutral">
+    <div className="w-full p-2 text-white bg-neutral-900">
       <div className="flex items-center">
         <div className="flex items-center w-full">
           <img src={logo} alt="logo" className="max-h-7 mr-2" />

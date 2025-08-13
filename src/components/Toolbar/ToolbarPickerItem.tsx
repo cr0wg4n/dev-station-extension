@@ -27,7 +27,7 @@ const ToolbarPickerItem: React.FC<ToolbarPickerItemProps> = ({
   return (
     <div>
       <div
-        className="flex items-center bg-warning hover:bg-warning hover:cursor-pointer p-2 border-b-2"
+        className="flex items-center bg-warning hover:bg-warning hover:cursor-pointer p-2"
         onClick={() => {
           if (onClick)
             onClick(title)
@@ -50,7 +50,7 @@ const ToolbarPickerItem: React.FC<ToolbarPickerItemProps> = ({
       {
         isTabActive
         && (
-          <div className="text-sm max-h-64 p-1 overflow-auto bg-white">
+          <div className="text-sm max-h-80 p-1 overflow-auto bg-white">
             { children }
           </div>
         )
