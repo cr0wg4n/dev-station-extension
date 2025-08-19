@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { FaClipboard, FaDownload, FaEyeDropper, FaTrash } from 'react-icons/fa'
-import { useBodyHiding } from '@/hooks/useBodyHiding'
 import type { Color } from './types'
-import { copyToClipboard, exportColorsToFile, hexToFormats } from './utils'
+import { exportColorsToFile, hexToFormats } from './utils'
+import { copyToClipboard } from '@/core/utils'
+import useAlertStore from '@/store/alert'
 import {
   addColorToHistory,
   clearColorHistory,
@@ -13,10 +14,7 @@ import {
 function ColorPicker() {
   const [currentColor, setCurrentColor] = useState<Color | null>(null)
   const [history, setHistory] = useState<Color[]>([])
-  const [isPicking, setIsPicking] = useState(false)
-
-  // Hide the extension popup while waiting for user color selection
-  useBodyHiding(isPicking)
+  const { toggle: toggleAlert } = useAlertStore(state => state)
 
   // Load history on mount
   useEffect(() => {
@@ -29,12 +27,31 @@ function ColorPicker() {
     saveColorHistory(colors)
   }
 
+  // Hide extension body
+  const hiddenExtensionBody = (shouldHide: boolean) => {
+    const body = document?.body
+    const appDiv = document?.getElementById('root')
+
+    if (!body || !appDiv)
+      return
+
+    if (shouldHide) {
+      body.style.setProperty('display', 'none', 'important')
+      appDiv.style.setProperty('display', 'none', 'important')
+    }
+    else {
+      body.style.display = ''
+      appDiv.style.display = ''
+    }
+  }
+
   // Pick color using EyeDropper API
   const pickColor = async () => {
     try {
-      setIsPicking(true)
+      hiddenExtensionBody(true)
 
       const eyeDropper = new (window as any).EyeDropper()
+
       const result = await eyeDropper.open()
 
       const color = hexToFormats(result.sRGBHex.toUpperCase())
@@ -47,7 +64,10 @@ function ColorPicker() {
       // User cancelled
     }
     finally {
-      setIsPicking(false)
+      hiddenExtensionBody(false)
+      const color: string = currentColor?.hex || ''
+      toggleAlert('success', `Color ${color} picked!`)
+      copyToClipboard(color)
     }
   }
 
@@ -63,9 +83,9 @@ function ColorPicker() {
       {/* Pick Color Button */}
       <button
         onClick={pickColor}
-        className="w-full flex items-center justify-center gap-2 bg-black hover:bg-gray-800 text-gray-400 hover:text-white py-2 px-4 rounded-lg transition-colors shadow-md shadow-neutral-400/70"
+        className="w-full btn btn-xs gap-2"
       >
-        <FaEyeDropper className="w-4 h-4" />
+        <FaEyeDropper />
         Pick Color
       </button>
 

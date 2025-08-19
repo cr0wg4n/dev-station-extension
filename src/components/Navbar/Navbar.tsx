@@ -10,26 +10,22 @@ export interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ title, subtitle, devMode = false }: NavbarProps) => {
   return (
-    <div className="w-full p-2 text-white bg-neutral-900">
-      <div className="flex items-center">
-        <div className="flex items-center w-full">
-          <img src={logo} alt="logo" className="max-h-7 mr-2" />
-          <div className="flex flex-row items-center justify-between w-full">
-            <div className="text-base font-medium">
-              {title}
-            </div>
-            <div className="text-xs pt-[2px]">
-              {subtitle}
-            </div>
-          </div>
-          {devMode && (
-            <div className="ml-2">
-              <Badge>
-                DEV Mode
-              </Badge>
-            </div>
-          )}
+    <div className="w-full p-2 pe-2.5 text-white bg-neutral-900 relative flex items-center justify-between whitespace-nowrap gap-2">
+      <img src={logo} alt="logo" className="max-h-7" />
+      <div className="flex-1 flex items-center justify-between gap-2 leading-none">
+        <div className="text-base font-medium">
+          {title}
         </div>
+        <div className="text-[11px] text-nowrap font-light text-neutral-400">
+          {subtitle}
+        </div>
+        {devMode && (
+          <div>
+            <Badge>
+              DEV Mode
+            </Badge>
+          </div>
+        )}
       </div>
     </div>
   )

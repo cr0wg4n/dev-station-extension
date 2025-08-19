@@ -38,7 +38,6 @@
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.6.0",
-    "_comment_commitizen": "Used for fix  `cz-conventional-changelog` vulnerbility",
     "autoprefixer": "^10.4.13",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
@@ -57,7 +56,6 @@
     }
   },
   "overrides": {
-    "_comment_overrides": "Used for fix  `cz-conventional-changelog` vulnerbility",
     "external-editor": "^3.1.0",
     "inquirer": "^12.9.1",
     "tmp": "^0.2.5"

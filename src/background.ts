@@ -28,7 +28,7 @@ chrome.tabs.onUpdated.addListener((tabId: number, changeInfo, _tab) => {
 })
 
 chrome.storage.onChanged.addListener((changes, _namespace) => {
-  for (const [key, { newValue }] of Object.entries(changes)) {
+  for (const [key, { oldValue: _oldValue, newValue }] of Object.entries(changes)) {
     if (key === CSS_OUTLINE_STATUS) {
       toggleCssDebugger(newValue)
     }

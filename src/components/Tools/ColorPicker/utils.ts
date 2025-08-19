@@ -47,12 +47,6 @@ export function hexToFormats(hex: string): Color {
 // Copy to clipboard with visual feedback
 export async function copyToClipboard(text: string) {
   await navigator.clipboard.writeText(text)
-  // Simple feedback without external alert system
-  const btn = document.activeElement as HTMLElement
-  if (btn) {
-    btn.classList.add('scale-75')
-    setTimeout(() => btn.classList.remove('scale-75'), 200)
-  }
 }
 
 // Export colors to JSON file
