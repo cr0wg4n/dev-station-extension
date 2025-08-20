@@ -5,14 +5,14 @@
 @tailwind utilities;
 
 * {
-  margin: 0;
   padding: 0;
   font-family: 'Nunito', sans-serif;
 }
 
-:root {
+body{
   width: 380px;
   max-height: 550px;
+  height: 1px;
 }
 
 /* * {

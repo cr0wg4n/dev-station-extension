@@ -21,7 +21,7 @@ const useAlertStore = create<AlertState>((set, get) => ({
       clearTimeout(timeoutId)
     }
 
-    const newTimeoutId = setTimeout(() => {
+    const newTimeoutId = window.setTimeout(() => {
       // Off
       set({ active: false, message: '', timeoutId: undefined })
     }, duration)

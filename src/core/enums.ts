@@ -3,6 +3,7 @@ enum Tools {
   CSS_OUTLINE = 'CSS Outline',
   RSS_CHECKER = 'RSS Checker',
   LOREM_GENERATOR = 'Lorem Generator',
+  COLOR_PICKER = 'Color Picker',
   ELEMENT_SIZES = 'Element Sizes',
   IMAGE_DOWNLOADER = 'Image Downloader',
   METADATA_SEARCHER = 'Metadata Searcher',

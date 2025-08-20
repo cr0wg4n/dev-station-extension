@@ -50,7 +50,7 @@ const RssChecker: React.FC = () => {
         setNothing(true)
       }
     }
-    catch (error) {
+    catch {
       toggleAlert('error', 'The target is not valid')
       setNothing(true)
     }

@@ -15,7 +15,7 @@ const ToolBarPicker: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className="[&>*:not(:last-child)]:mb-0.5">
       {
         tools.map(({ id, title, active, description }) => {
           const tool = buildTool(id)
