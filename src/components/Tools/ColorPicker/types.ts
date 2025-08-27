@@ -3,4 +3,5 @@ export interface Color {
   rgb: string
   hsl: string
   time: string
+  datetime: string
 }

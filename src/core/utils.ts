@@ -28,10 +28,26 @@ export async function checkRss(url?: string): Promise<RssItem | undefined> {
     : undefined
 }
 
-export function copyToClipboard(text: string): void {
-  navigator.clipboard.writeText(text)
+export async function copyToClipboard(text: string): Promise<void> {
+  await navigator.clipboard.writeText(text)
 }
 
 export function random(max: number = 10, min: number = 1): number {
   return Math.floor((Math.random() * max) + min)
+}
+
+export function getActualDateTime(): { date: string, time: string, datetime: string } {
+  const now = new Date()
+  return {
+    date: now.toLocaleDateString(),
+    time: now.toLocaleTimeString(
+      undefined,
+      {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+      },
+    ),
+    datetime: now.toISOString(),
+  }
 }

@@ -5,7 +5,7 @@ import QuoteBar from './components/Tools/QuoteBar'
 import ToolBarPicker from './components/Toolbar/ToolbarPicker'
 import { getMetadata } from './config'
 
-const { creator, homeURL, version, devMode } = getMetadata()
+const { respositoryURL, version, devMode } = getMetadata()
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <ToolBarPicker />
       <QuoteBar />
       <Alert />
-      <Footer creator={creator} url={homeURL} version={version} />
+      <Footer url={respositoryURL} version={version} />
     </div>
   )
 }

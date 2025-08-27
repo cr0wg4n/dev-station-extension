@@ -18,6 +18,13 @@ const enabledTools: Array<Tool> = [
     description: 'Shows the true appearance of HTML elements, save your time',
   },
   {
+    id: Tools.COLOR_PICKER,
+    title: 'Color Picker',
+    active: false,
+    description:
+      'Capture colors directly from webpage elements with eyedropper tool',
+  },
+  {
     id: Tools.RSS_CHECKER,
     title: 'RSS Checker',
     active: false,
@@ -30,13 +37,6 @@ const enabledTools: Array<Tool> = [
     active: false,
     description:
       'Customize your Lorem Ipsums, and generate paragraphs aleatorily',
-  },
-  {
-    id: Tools.COLOR_PICKER,
-    title: 'Color Picker',
-    active: false,
-    description:
-      'Capture colors directly from webpage elements with eyedropper tool',
   },
 ]
 

@@ -1,4 +1,4 @@
-import './custom.css'
+import './index.css'
 
 import { FaClipboard, FaDice } from 'react-icons/fa'
 import { copyToClipboard, random } from '@/core/utils'
@@ -129,7 +129,7 @@ const LoremIpsumGenerator: React.FC = () => {
       </div>
 
       <div
-        className="lorem-ipsum px-1 bg-slate-200 mt-3"
+        className="lorem-ipsum p-2 bg-slate-200 mt-3 rounded-md"
         dangerouslySetInnerHTML={{ __html: lorem }}
       />
     </div>

@@ -1,7 +1,7 @@
 import type { Color } from './types'
 
 // Convert hex to RGB and HSL
-export function hexToFormats(hex: string): Color {
+export function hexToFormats(hex: string) {
   const r = Number.parseInt(hex.slice(1, 3), 16)
   const g = Number.parseInt(hex.slice(3, 5), 16)
   const b = Number.parseInt(hex.slice(5, 7), 16)
@@ -35,18 +35,8 @@ export function hexToFormats(hex: string): Color {
   const hsl = `hsl(${Math.round(h * 360)}, ${Math.round(
     s * 100,
   )}%, ${Math.round(l * 100)}%)`
-  const time = new Date().toLocaleTimeString([], {
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-  })
 
-  return { hex, rgb, hsl, time }
-}
-
-// Copy to clipboard with visual feedback
-export async function copyToClipboard(text: string) {
-  await navigator.clipboard.writeText(text)
+  return { hex, rgb, hsl }
 }
 
 // Export colors to JSON file
@@ -55,7 +45,7 @@ export function exportColorsToFile(colors: Color[]) {
     return
 
   const data = {
-    date: new Date().toISOString(),
+    'export-datetime': new Date().toISOString(),
     colors,
   }
 

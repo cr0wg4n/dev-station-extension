@@ -1,0 +1,12 @@
+.lorem-ipsum > p {
+  padding: 5px 0px;
+  text-align: justify;
+}
+
+.lorem-ipsum > p:first-child {
+  padding-top: 0;
+}
+
+.lorem-ipsum > p:last-child {
+  padding-bottom: 0;
+}

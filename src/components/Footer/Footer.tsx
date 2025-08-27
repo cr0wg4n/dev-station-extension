@@ -1,13 +1,12 @@
 interface FooterProps {
-  creator: string
   url: string
   version: string
 }
 
-const Footer: React.FC<FooterProps> = ({ creator, url, version }: FooterProps) => {
+const Footer: React.FC<FooterProps> = ({ url, version }: FooterProps) => {
   return (
-    <div className="p-1.5 text-center text-[10px] bg-neutral-900 text-neutral-400 border-t border-neutral-700">
-      Made with ❤️ by
+    <div className="p-1.5 text-xxs text-center bg-neutral-900 text-neutral-300 border-t border-neutral-700">
+      Coded with ❤️ by the community —
       {' '}
       <a
         href={url}
@@ -15,9 +14,11 @@ const Footer: React.FC<FooterProps> = ({ creator, url, version }: FooterProps) =
         className="underline text-neutral-300/80"
         title="Get in touch"
       >
-        { creator }
+        join
       </a>
       {' '}
+      the fun!
+      <span className="mx-1" />
       (v
       {version}
       )

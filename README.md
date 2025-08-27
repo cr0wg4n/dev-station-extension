@@ -25,14 +25,19 @@ nvm use
 npm install
 npm run dev
 ```
+### Contribution
+
+> Contribution rules in progress 👷🚧🏗️
+
+We use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), so if you're introducing changes, use the command `pnpm run commit` to run Commitizen. The commit CLI will help ensure your commits follow the Conventional Commits standard.
 
 ### Features in development (easy to hard)
 - [x] CSS outline for debugging
-- [x] Quotes and Mantras, Thank you so much https://quotable.io
+- [x] Quotes and Mantras (thank you so much https://quotable.io)
 - [x] RSS checker
 - [x] Lorem Ipsum Generator
+- [x] Color Picker (great contribution [rafaelpeter03](https://github.com/rafaelpeter03), new feature!)
 - [ ] Improvement: Status Tabs, save status
-- [ ] Color Picker
 - [ ] Custom Script loader
 - [ ] Website blocker (add a webpage with rickroll)
 - [ ] Website metadata extractor (tag analyzer)

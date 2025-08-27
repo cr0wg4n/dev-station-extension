@@ -10,11 +10,11 @@ const QuoteBar: React.FC = () => {
     <div>
       {loaded
         ? (
-            <div className="p-2 text-neutral-400 text-center text-xs bg-neutral-900/95">
+            <div className="p-2 text-neutral-400 text-center text-xs bg-neutral-800">
               <span className="text-neutral-400/50">"</span>
               {content}
               <span className="text-neutral-400/50">"</span>
-              <div className="mt-1 italic text-orange-300/80 text-[10px]">
+              <div className="mt-1 italic text-orange-300 text-xxs">
                 —
                 {' '}
                 {author}

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { FaClipboard, FaDownload, FaEyeDropper, FaTrash } from 'react-icons/fa'
 import type { Color } from './types'
-import { exportColorsToFile, hexToFormats } from './utils'
-import { copyToClipboard } from '@/core/utils'
+import { exportColorsToFile, hexToFormats } from './helpers'
+import { copyToClipboard, getActualDateTime } from '@/core/utils'
 import useAlertStore from '@/store/alert'
 import {
   addColorToHistory,
@@ -52,11 +52,17 @@ function ColorPicker() {
 
       const eyeDropper = new (window as any).EyeDropper()
 
+      await new Promise(resolve => setTimeout(resolve, 100)) // Wait for body to hide
       const result = await eyeDropper.open()
 
-      const color = hexToFormats(result.sRGBHex.toUpperCase())
+      const formattedColor = hexToFormats(result.sRGBHex.toUpperCase())
+      const { time, datetime } = getActualDateTime()
+      const color = {
+        ...formattedColor,
+        time,
+        datetime,
+      }
       setCurrentColor(color)
-
       const newHistory = addColorToHistory(color, history)
       saveHistory(newHistory)
     }
@@ -91,7 +97,7 @@ function ColorPicker() {
 
       {/* Current Color */}
       {currentColor && (
-        <div className="p-2 bg-gray-200/70 rounded-lg">
+        <div className="p-2 bg-slate-200 rounded-lg">
           <div className="flex gap-3">
             <div className="flex flex-col items-center">
               <div
@@ -126,21 +132,21 @@ function ColorPicker() {
 
       {/* History */}
       {history.length > 0 && (
-        <div className="bg-gradient-to-b from-gray-200/70 to-gray-50 p-2 rounded-lg">
+        <div className="p-2 bg-slate-200 rounded-lg">
           <div className="flex items-center justify-between mb-2">
             <h3 className="text-sm font-medium">History</h3>
             <div className="flex gap-1">
               <button
                 onClick={() => exportColorsToFile(history)}
                 className="p-1.5 hover:bg-gray-100 rounded transition-colors"
-                title="Export"
+                title="Export history in JSON format"
               >
                 <FaDownload className="w-3 h-3" />
               </button>
               <button
                 onClick={handleClearHistory}
-                className="p-1.5 hover:bg-gray-100 rounded transition-colors text-red-500"
-                title="Clear"
+                className="p-1.5 hover:bg-gray-100 rounded transition-colors"
+                title="Clear history"
               >
                 <FaTrash className="w-3 h-3" />
               </button>
@@ -164,8 +170,7 @@ function ColorPicker() {
       {/* Empty State */}
       {!currentColor && history.length === 0 && (
         <div className="mt-8 text-center text-gray-400">
-          <FaEyeDropper className="w-8 h-8 mx-auto mb-2 opacity-50" />
-          <p className="text-sm">No colors yet</p>
+          <p className="text-sm py-4">No color selected. Give it a try!</p>
         </div>
       )}
     </div>
