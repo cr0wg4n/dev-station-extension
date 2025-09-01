@@ -1,44 +1,10 @@
-import { getRssUrlsFromUrl } from 'rss-url-finder';
-import { LoremIpsumProps, RssItem } from './types';
-import { loremIpsum } from 'lorem-ipsum';
+import type { RssItem } from '@/core/types'
+import { getRssUrlsFromUrl } from 'rss-url-finder'
 
 export async function getCurrentTab() {
-  const queryOptions = { active: true, lastFocusedWindow: true}
-  const [ tab ] = await chrome.tabs.query(queryOptions)
+  const queryOptions = { active: true, lastFocusedWindow: true }
+  const [tab] = await chrome.tabs.query(queryOptions)
   return tab
-}
-
-async function insertCSS(tabId: number, css: string) {
-  try {
-    await chrome.scripting.insertCSS({
-      target: { tabId: tabId},
-      css
-    })
-  } catch (error) {
-    console.log('Insert CSS is not possible:', error)
-  }
-}
-
-export async function enableCssDebugger(tabId?: number) {
-  const css = `
-    * {
-      outline: 1px solid red !important;
-    }
-  `
-
-  const { id } = await getCurrentTab() || {}
-  tabId ? insertCSS(tabId, css) : id && insertCSS(id, css)
-}
-
-export async function disableCssDebugger(tabId?: number) {
-  const css = `
-    * {
-      outline: none !important;
-    }
-  `
-
-  const {id} = await getCurrentTab() || {}
-  tabId ? insertCSS(tabId, css) : id && insertCSS(id, css)
 }
 
 export function keyStorageName(toolName: string, key: string) {
@@ -47,38 +13,41 @@ export function keyStorageName(toolName: string, key: string) {
 
 export async function checkRss(url?: string): Promise<RssItem | undefined> {
   let targetUrl
-  if(url) {
+  if (url) {
     targetUrl = url
-  } else {
+  }
+  else {
     const tab = await getCurrentTab()
     targetUrl = tab.url
   }
-  return targetUrl ? {
-    url: targetUrl,
-    rssSources: await getRssUrlsFromUrl(targetUrl)
-  } : undefined
+  return targetUrl
+    ? {
+        url: targetUrl,
+        rssSources: await getRssUrlsFromUrl(targetUrl),
+      }
+    : undefined
 }
 
-export function copyToClipboard(text: string): void {
-  navigator.clipboard.writeText(text)
+export async function copyToClipboard(text: string): Promise<void> {
+  await navigator.clipboard.writeText(text)
 }
-
 
 export function random(max: number = 10, min: number = 1): number {
   return Math.floor((Math.random() * max) + min)
 }
 
-export function generateLoremIpsum({
-  format, 
-  count, 
-  paragraphLowerBound, 
-  paragraphUpperBound
-}: LoremIpsumProps): string {
-  return loremIpsum({
-    format,
-    count,
-    units: 'paragraph',
-    paragraphLowerBound,
-    paragraphUpperBound,
-  })
+export function getActualDateTime(): { date: string, time: string, datetime: string } {
+  const now = new Date()
+  return {
+    date: now.toLocaleDateString(),
+    time: now.toLocaleTimeString(
+      undefined,
+      {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+      },
+    ),
+    datetime: now.toISOString(),
+  }
 }

@@ -1,10 +1,9 @@
-import { ReactElement } from "react";
-
-export enum Tools {
+enum Tools {
   QUOTES = 'Quotes and Mantras',
   CSS_OUTLINE = 'CSS Outline',
   RSS_CHECKER = 'RSS Checker',
   LOREM_GENERATOR = 'Lorem Generator',
+  COLOR_PICKER = 'Color Picker',
   ELEMENT_SIZES = 'Element Sizes',
   IMAGE_DOWNLOADER = 'Image Downloader',
   METADATA_SEARCHER = 'Metadata Searcher',
@@ -15,8 +14,6 @@ export enum Tools {
   WINDOWS_RESIZER = 'Windows Resizer',
 }
 
-export interface ToolComponent {
-  name: string,
-  rootComponent: ReactElement,
-  icon: ReactElement
+export {
+  Tools,
 }

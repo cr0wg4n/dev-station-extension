@@ -1,9 +1,9 @@
 {
   "name": "Dev Station",
   "description": "The definitive Swiss Knife extension for developers!",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "manifest_version": 3,
-  "action":{
+  "action": {
     "default_popup": "index.html",
     "default_title": "Open"
   },
@@ -16,12 +16,11 @@
   "background": {
     "service_worker": "src/background.ts"
   },
-  "icons":{
+  "icons": {
     "128": "icon.png"
   },
   "host_permissions": [
     "https://*/*",
     "http://*/*"
-  ],
-  "author": "Mauricio Matias"
+  ]
 }

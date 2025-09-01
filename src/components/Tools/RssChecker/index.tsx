@@ -1,16 +1,19 @@
-import { useEffect, useState } from "react"
-import { checkRss, copyToClipboard } from "../../../core/utils"
-import { RssItem } from "../../../core/types"
-import UrlContainer from "./UrlContainer"
-import { FaClipboard, FaSearch } from "react-icons/fa"
-import { Tools } from "../../../core/tools"
-import { useChromeStorageLocal } from "use-chrome-storage"
-import useAlertStore from "../../../store/alert"
+import { FaClipboard, FaSearch } from 'react-icons/fa'
+import { checkRss, copyToClipboard } from '@/core/utils'
+import { useEffect, useState } from 'react'
 
-const INITIAL_STATE = ()=>({
-  url: '',
-  rssSources: []
-})
+import type { RssItem } from '@/core/types'
+import { Tools } from '@/core/enums'
+import UrlContainer from './UrlContainer'
+import useAlertStore from '@/store/alert'
+import { useChromeStorageLocal } from 'use-chrome-storage'
+
+function INITIAL_STATE() {
+  return {
+    url: '',
+    rssSources: [],
+  }
+}
 
 export const toolName = Tools.RSS_CHECKER
 
@@ -18,96 +21,114 @@ const RssChecker: React.FC = () => {
   const [loading, setLoading] = useState(false)
   const [nothing, setNothing] = useState(false)
   const [feed, setFeed] = useState<RssItem>(INITIAL_STATE())
-  const { toogle: toogleAlert } = useAlertStore(state => state)
+  const { toggle: toggleAlert } = useAlertStore(state => state)
 
   const [lastFeed, setLastFeed] = useChromeStorageLocal<RssItem>(
-    toolName, 
-    INITIAL_STATE()
+    toolName,
+    INITIAL_STATE(),
   )
 
   const handleCopyAll = () => {
-    toogleAlert('success', 'Copied all to clipboard!')
+    toggleAlert('success', 'Copied all to clipboard!')
     let text = ''
-    feed.rssSources.forEach(({url})=>{
-      text += url + '\n'
+    feed.rssSources.forEach(({ url }) => {
+      text += `${url}\n`
     })
     copyToClipboard(text.trim())
   }
 
-  const handleClick = () => {
+  const handleScan = async () => {
     setLoading(true)
-    checkRss()
-      .then((rssFeed)=>{
-        setFeed(INITIAL_STATE())
-        if (rssFeed) {
-          setLastFeed(rssFeed)
-
-          if(rssFeed.rssSources.length <= 0) {
-            setNothing(true)
-          } else {
-            setFeed(rssFeed)
-          }
-        } else {
-          setNothing(true)
-        }
-      })
-      .finally(()=>{
-        setLoading(false)
-      })
+    try {
+      const rssFeed = await checkRss()
+      setFeed(INITIAL_STATE())
+      if (rssFeed && rssFeed.rssSources.length > 0) {
+        setFeed(rssFeed)
+        setLastFeed(rssFeed)
+      }
+      else {
+        setNothing(true)
+      }
+    }
+    catch {
+      toggleAlert('error', 'The target is not valid')
+      setNothing(true)
+    }
+    finally {
+      setLoading(false)
+    }
   }
 
-  useEffect(()=>{
-    if(lastFeed.rssSources.length){
+  useEffect(() => {
+    if (lastFeed.rssSources.length) {
       setFeed(lastFeed)
     }
   }, [lastFeed])
 
-  return <div className="w-full text-center">
-    <div className="flex items-center flex-row gap-2 justify-center">
-      <button
-        className={`btn btn-xs ${loading ? 'loading' : ''}`}
-        onClick={handleClick}
-      >
-        {!loading && <FaSearch className="mr-1" size={10}/>}
-        Scan
-      </button>
-      {
-        feed?.rssSources.length > 0 && !loading && 
-        <button 
-          className="btn btn-xs" 
-          onClick={handleCopyAll}
+  return (
+    <div className="w-full text-center">
+      <div className="flex items-center flex-row gap-2 justify-center">
+        <button
+          className={`btn btn-xs ${loading ? 'loading' : ''}`}
+          onClick={handleScan}
         >
-          <FaClipboard className="mr-1" size={10}/> Copy All
+          {!loading && <FaSearch className="mr-1" size={10} />}
+          Scan
         </button>
-      }
+        {
+          feed?.rssSources.length > 0 && !loading && !nothing
+          && (
+            <button
+              className="btn btn-xs"
+              onClick={handleCopyAll}
+            >
+              <FaClipboard className="mr-1" size={10} />
+              {' '}
+              Copy All
+            </button>
+          )
+        }
+      </div>
+      <div>
+        {
+          loading
+            ? (
+                <div className="py-2 text-sm">
+                  searching ...
+                </div>
+              )
+            : nothing
+              ? (
+                  <div className="py-2 text-sm">
+                    Nothing was found
+                  </div>
+                )
+              : feed?.rssSources.length > 0
+                && (
+                  <>
+                    <div className="pt-2">
+                      <div className="text-xs pb-1 truncate">
+                        <strong>Latest successfully scanned:</strong>
+                        {' '}
+                        <span title={lastFeed.url}>
+                          { lastFeed.url }
+                        </span>
+                      </div>
+                      {feed?.rssSources.map(({ name, url }) => (
+                        <UrlContainer
+                          key={url}
+                          name={name}
+                          url={url}
+                        />
+                      ),
+                      )}
+                    </div>
+                  </>
+                )
+        }
+      </div>
     </div>
-    <div>
-      {
-        loading ? 
-        <div className="py-2 text-sm">
-          searching ...
-        </div> : nothing ? 
-        <div className="py-2 text-sm">
-          Nothing was found
-        </div> :
-          feed?.rssSources.length > 0 && 
-          <>
-            <div className="pt-2">
-              <div className="text-xs pb-1 text-ellipsis whitespace-nowrap overflow-hidden">
-                <strong>Latest scanned:</strong> { lastFeed.url }
-              </div>
-              {feed?.rssSources.map(({name, url}) =>
-                <UrlContainer 
-                  key={url} 
-                  name={name} 
-                  url={url} 
-                />
-              )}
-            </div>
-          </>
-      }
-    </div>
-  </div>
+  )
 }
 
 export default RssChecker
