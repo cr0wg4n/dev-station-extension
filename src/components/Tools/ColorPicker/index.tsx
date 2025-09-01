@@ -101,7 +101,7 @@ function ColorPicker() {
           <div className="flex gap-3">
             <div className="flex flex-col items-center">
               <div
-                className="w-16 h-full rounded-lg border-2 border-gray-200 cursor-pointer hover:scale-105 transition-transform"
+                className="w-16 h-full rounded-lg cursor-pointer hover:scale-105 transition-transform"
                 style={{ backgroundColor: currentColor.hex }}
                 onClick={() => copyToClipboard(currentColor.hex)}
               />
@@ -157,7 +157,7 @@ function ColorPicker() {
             {history.map((color, i) => (
               <button
                 key={i}
-                className="aspect-square rounded border border-gray-200 hover:scale-110 hover:border-gray-400 transition-all"
+                className="aspect-square rounded border border-gray-300 hover:scale-105 hover:border-gray-400 transition-all"
                 style={{ backgroundColor: color.hex }}
                 onClick={() => setCurrentColor(color)}
                 title={color.hex}
