@@ -7,7 +7,6 @@
   "github": {
     "release": true,
     "releaseName": "v${version}",
-    "releaseNotes": "git log --no-merges --pretty=format:\"* %s %h\" ${latestTag}...main",
     "assets": ["dist/*"]
   },
   "npm": {
