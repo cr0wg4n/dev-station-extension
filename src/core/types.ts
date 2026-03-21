@@ -30,3 +30,11 @@ export interface Tool {
   active: boolean
   description?: string
 }
+
+export interface Color {
+  hex: string
+  rgb: string
+  hsl: string
+  time: string
+  datetime?: string
+}

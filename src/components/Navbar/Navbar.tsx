@@ -16,7 +16,7 @@ const Navbar: React.FC<NavbarProps> = ({ title, subtitle, devMode = false }: Nav
         <div className="text-base font-medium">
           {title}
         </div>
-        <div className="text-xs text-nowrap text-neutral-300">
+        <div className="text-[11px] text-nowrap font-normal text-neutral-300">
           {subtitle}
         </div>
         {devMode && (

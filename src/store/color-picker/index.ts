@@ -1,4 +1,4 @@
-import type { Color } from './types'
+import type { Color } from '@/core/types'
 
 const STORAGE_KEY = 'colors'
 const MAX_HISTORY_SIZE = 20

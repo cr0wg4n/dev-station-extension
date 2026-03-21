@@ -1,7 +1,26 @@
-import type { Color } from './types'
+import type { Color } from '@/core/types'
 
-// Convert hex to RGB and HSL
-export function hexToFormats(hex: string) {
+function exportColorsToFile(colors: Color[]) {
+  if (!colors.length)
+    return
+
+  const data = {
+    'export-datetime': new Date().toISOString(),
+    colors,
+  }
+
+  const blob = new Blob([JSON.stringify(data, null, 2)], {
+    type: 'application/json',
+  })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = `colors-${Date.now()}.json`
+  a.click()
+  URL.revokeObjectURL(url)
+}
+
+function hexToFormats(hex: string) {
   const r = Number.parseInt(hex.slice(1, 3), 16)
   const g = Number.parseInt(hex.slice(3, 5), 16)
   const b = Number.parseInt(hex.slice(5, 7), 16)
@@ -39,23 +58,12 @@ export function hexToFormats(hex: string) {
   return { hex, rgb, hsl }
 }
 
-// Export colors to JSON file
-export function exportColorsToFile(colors: Color[]) {
-  if (!colors.length)
-    return
+function isFeatureAvailable() {
+  return !!(window as any)?.EyeDropper
+}
 
-  const data = {
-    'export-datetime': new Date().toISOString(),
-    colors,
-  }
-
-  const blob = new Blob([JSON.stringify(data, null, 2)], {
-    type: 'application/json',
-  })
-  const url = URL.createObjectURL(blob)
-  const a = document.createElement('a')
-  a.href = url
-  a.download = `colors-${Date.now()}.json`
-  a.click()
-  URL.revokeObjectURL(url)
+export {
+  exportColorsToFile,
+  hexToFormats,
+  isFeatureAvailable,
 }
