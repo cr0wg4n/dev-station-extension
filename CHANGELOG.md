@@ -1,5 +1,9 @@
 # Changelog
 
+## <small>0.1.1 (2026-03-21)</small>
+
+* fix(colorpicker): small ui fix, enabling or disabling color picker based in brower availability ([9f10457](https://github.com/cr0wg4n/dev-station-extension/commit/9f10457))
+
 ## 0.1.0 (2025-09-01)
 
 * chore(dev-station): just release config ([557eff5](https://github.com/cr0wg4n/dev-station-extension/commit/557eff5))
