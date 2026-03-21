@@ -1,15 +1,16 @@
-import { useEffect, useState } from 'react'
 import { FaClipboard, FaDownload, FaEyeDropper, FaTrash } from 'react-icons/fa'
-import type { Color } from './types'
-import { exportColorsToFile, hexToFormats } from './helpers'
-import { copyToClipboard, getActualDateTime } from '@/core/utils'
-import useAlertStore from '@/store/alert'
 import {
   addColorToHistory,
   clearColorHistory,
   loadColorHistory,
   saveColorHistory,
-} from './storage'
+} from '@/store/color-picker'
+import { copyToClipboard, getActualDateTime } from '@/core/utils'
+import { exportColorsToFile, hexToFormats } from '@/core/color-picker'
+import { useEffect, useState } from 'react'
+
+import type { Color } from '@/core/types'
+import useAlertStore from '@/store/alert'
 
 function ColorPicker() {
   const [currentColor, setCurrentColor] = useState<Color | null>(null)
@@ -97,7 +98,7 @@ function ColorPicker() {
 
       {/* Current Color */}
       {currentColor && (
-        <div className="p-2 bg-slate-200 rounded-lg">
+        <div className="p-2 bg-gray-200 rounded-lg">
           <div className="flex gap-3">
             <div className="flex flex-col items-center">
               <div
@@ -132,7 +133,7 @@ function ColorPicker() {
 
       {/* History */}
       {history.length > 0 && (
-        <div className="p-2 bg-slate-200 rounded-lg">
+        <div className="bg-gray-200 p-2 rounded-lg">
           <div className="flex items-center justify-between mb-2">
             <h3 className="text-sm font-medium">History</h3>
             <div className="flex gap-1">
@@ -169,8 +170,8 @@ function ColorPicker() {
 
       {/* Empty State */}
       {!currentColor && history.length === 0 && (
-        <div className="mt-8 text-center text-gray-400">
-          <p className="text-sm py-4">No color selected. Give it a try!</p>
+        <div className="py-3 text-center text-gray-400">
+          <p className="text-sm">No colors yet, try picking a color!</p>
         </div>
       )}
     </div>

@@ -5,8 +5,8 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ url, version }: FooterProps) => {
   return (
-    <div className="p-1.5 text-xxs text-center bg-neutral-900 text-neutral-300 border-t border-neutral-700">
-      Coded with ❤️ by the community —
+    <div className="p-1.5 text-center text-[0.625rem] bg-neutral-900 text-neutral-400 border-t border-neutral-700">
+      Made with ❤️ by devs. Wanna help?
       {' '}
       <a
         href={url}
@@ -14,7 +14,7 @@ const Footer: React.FC<FooterProps> = ({ url, version }: FooterProps) => {
         className="underline text-neutral-300/80"
         title="Get in touch"
       >
-        join
+        Contribute here
       </a>
       {' '}
       the fun!
