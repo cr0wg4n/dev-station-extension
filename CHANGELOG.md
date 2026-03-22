@@ -1,5 +1,8 @@
 # Changelog
 
+* Merge pull request #5 from cr0wg4n/development (1cadfb4)
+* fix(release): release assets properly uploaded (5c9b177)
+
 * Merge pull request #4 from cr0wg4n/development (4b990df)
 * fix(release pipeline): automatic release (0619e67)
 
