@@ -7,13 +7,13 @@
   "github": {
     "release": true,
     "releaseName": "v${version}",
-    "assets": ["dist/*"]
+    "assets": ["dev-station-${version}.zip"]
   },
   "npm": {
     "publish": false
   },
   "hooks": {
-    "after:bump": "sh scripts/update-manifest-version.sh ${version} && npm run build"
+    "after:bump": "sh scripts/update-manifest-version.sh ${version} && npm run build && sh scripts/package-extension.sh ${version}"
   },
   "plugins": {
     "@release-it/conventional-changelog": {
