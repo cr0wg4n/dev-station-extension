@@ -1,5 +1,8 @@
 # Changelog
 
+* Merge pull request #4 from cr0wg4n/development (4b990df)
+* fix(release pipeline): automatic release (0619e67)
+
 ## <small>0.1.1 (2026-03-21)</small>
 
 * fix(colorpicker): small ui fix, enabling or disabling color picker based in brower availability ([9f10457](https://github.com/cr0wg4n/dev-station-extension/commit/9f10457))
