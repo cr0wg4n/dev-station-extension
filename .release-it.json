@@ -12,6 +12,9 @@
   "npm": {
     "publish": false
   },
+  "hooks": {
+    "after:bump": "sh scripts/update-manifest-version.sh ${version} && npm run build"
+  },
   "plugins": {
     "@release-it/conventional-changelog": {
       "preset": {
